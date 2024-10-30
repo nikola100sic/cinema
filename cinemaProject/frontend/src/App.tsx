@@ -6,9 +6,7 @@ import Button from './components/shared/button/Button';
 function App() {
   return (
     <Router>
-      <Layout>
-        <p></p>
-      </Layout>
+      <Layout></Layout>
     </Router>
   );
 }
