@@ -1,10 +1,18 @@
-import { Axios } from 'axios';
 import { CinemaAxios } from './axios';
+import { Genre } from '../../types/Genre';
 
-const getGenres = () => {
+export const getGenres = () => {
   return CinemaAxios.get('/genres');
 };
 
-const getGenre = (id: string) => {
+export const getGenre = (id: string) => {
   return CinemaAxios.get(`/genres/${id}`);
+};
+
+export const addGenre = (genre: Genre) => {
+  return CinemaAxios.post('/genres/', genre);
+};
+
+export const updateGenre = (updatedGenre: Genre) => {
+  return CinemaAxios.put(`/genres`, updateGenre);
 };
