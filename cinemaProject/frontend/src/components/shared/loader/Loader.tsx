@@ -1,10 +1,10 @@
 import React from 'react';
 
 interface LoaderProps {
-  loader: boolean;
+  loading: boolean;
 }
 
-const loader = () => {
+const loader = ({ loading }: LoaderProps) => {
   return <div></div>;
 };
 
