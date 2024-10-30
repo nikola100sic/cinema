@@ -6,10 +6,7 @@ import Button from './components/shared/button/Button';
 function App() {
   return (
     <Router>
-      <Layout>
-        <Button type="reset" text="Reset"></Button>
-        <Button type="submit" text="Submit"></Button>
-      </Layout>
+      <Layout></Layout>
     </Router>
   );
 }
