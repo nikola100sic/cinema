@@ -5,10 +5,12 @@ interface LoaderProps {
   loading: boolean;
 }
 
-const loader = ({ loading }: LoaderProps) => {
-  <div className="loader">
-    <ClipLoader loading={loading} size={50} />
-  </div>;
+const Loader = ({ loading }: LoaderProps) => {
+  return (
+    <center style={{ marginTop: '30vh' }}>
+      <ClipLoader size={40} loading={loading}></ClipLoader>
+    </center>
+  );
 };
 
-export default loader;
+export default Loader;
