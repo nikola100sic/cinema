@@ -20,7 +20,6 @@ const GenrePage = () => {
   const getGenres = async () => {
     try {
       const res = await genreServiceAxios.getGenres();
-      console.log(res.data);
       setGenres(res.data);
       setLoading(false);
     } catch (error) {
@@ -33,8 +32,6 @@ const GenrePage = () => {
   }, []);
 
   const handleDelete = (id: number) => {
-    console.log(`Handle delete called with id: ${id}`); // Debug log
-    console.log('Attempting to show toast'); // Debug log
     toast(
       <div>
         <div>Are you sure you want to delete this genre?</div>
@@ -49,7 +46,6 @@ const GenrePage = () => {
   };
 
   const confirmDelete = (id: number) => {
-    console.log(`Attempting to confirm delete for genre with id: ${id}`); // Debug log
     toast.dismiss();
 
     genreServiceAxios
