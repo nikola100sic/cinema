@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping(value = "/api/genres", produces = MediaType.APPLICATION_JSON_VALUE)
 public class GenreController {
