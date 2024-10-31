@@ -3,6 +3,8 @@ import './App.css';
 import Layout from './components/shared/layout/Layout';
 import { ToastContainer } from 'react-toastify';
 import GenrePage from './pages/genre/GenrePage';
+import 'react-toastify/dist/ReactToastify.css';
+import GenreAddPage from './pages/genre/GenreAddPage';
 
 function App() {
   return (
@@ -11,6 +13,7 @@ function App() {
         <Layout>
           <Routes>
             <Route path="/genres" element={<GenrePage />} />
+            <Route path="/genres/add" element={<GenreAddPage />} />
           </Routes>
         </Layout>
       </Router>
