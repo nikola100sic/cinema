@@ -2,7 +2,7 @@ import React from 'react';
 import { StyledButton, SubmitButton } from './Button.styled';
 
 type ButtonType = 'submit' | 'reset';
-type ButtonVariant = 'filed' | 'outlined';
+type ButtonVariant = 'filled' | 'outlined';
 
 interface ButtonProps {
   text: string;
