@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '../../shared/button/Button';
-import { ButtonContainer, Card, GenreInfo } from './GenreCar.styled';
+import { ButtonContainer, Card, GenreInfo } from './GenreCard.styled';
 
 interface GenreCardProps {
   name: string;
