@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Genre } from '../../types/Genre';
 import { useNavigate } from 'react-router-dom';
 import genreServiceAxios from '../../components/api/genre.service.axios';
-import { error } from 'console';
 import GenreCard from '../../components/ui/GenreCard/GenreCard';
 import Loader from '../../components/shared/loader/Loader';
 import { CardContainer } from './GenrePage.styled';

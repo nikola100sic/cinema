@@ -1,7 +1,6 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import './App.css';
 import Layout from './components/shared/layout/Layout';
-import Button from './components/shared/button/Button';
 import { ToastContainer } from 'react-toastify';
 import GenrePage from './pages/genre/GenrePage';
 
