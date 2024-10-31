@@ -1,6 +1,9 @@
 INSERT INTO genres (id, name) VALUES (1, 'Comedy');
 INSERT INTO genres (id, name) VALUES (2, 'Horror');
 INSERT INTO genres (id, name) VALUES (3, 'Crime');
+INSERT INTO genres (id, name) VALUES (4, 'Drama');
+INSERT INTO genres (id, name) VALUES (5, 'Science fiction');
+INSERT INTO genres (id, name) VALUES (6, 'Romance');
 
 INSERT INTO movies (name, duration, image) VALUES ('The Godfather', 175, 'hwww.movie1.com');
 INSERT INTO movies (name, duration, image) VALUES ('Meet the Fockers', 152, 'www.movie2.com');
