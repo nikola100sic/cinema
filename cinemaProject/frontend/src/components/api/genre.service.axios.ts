@@ -5,8 +5,8 @@ const getGenres = () => {
   return CinemaAxios.get('/genres');
 };
 
-const deleteGenre = (id: string) => {
-  return CinemaAxios.get(`/genres/${id}`);
+const deleteGenre = (id: number) => {
+  return CinemaAxios.delete(`/genres/${id}`);
 };
 
 const addGenre = (genre: Genre) => {
