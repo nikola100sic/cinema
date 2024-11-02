@@ -29,7 +29,7 @@ const GenreAddPage = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (genre.name === '') {
-      toast.info('You must enter a name of genre');
+      toast.warning('You must enter a name of genre');
       return;
     }
     genreServiceAxios
