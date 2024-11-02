@@ -9,6 +9,7 @@ import {
 import { toast } from 'react-toastify';
 import genreServiceAxios from '../../components/api/genre.service.axios';
 import { useNavigate } from 'react-router-dom';
+import { ButtonContainer } from '../../components/ui/GenreCard/GenreCard.styled';
 
 const GenreAddPage = () => {
   const [genre, setGenre] = useState({
@@ -55,7 +56,9 @@ const GenreAddPage = () => {
           name="name"
           value={genre.name}
         ></FormInput>
-        <Button text="Add" type="submit" />
+        <ButtonContainer>
+          <Button text="Add" type="submit" />
+        </ButtonContainer>
       </form>
     </AddPageStyled>
   );
