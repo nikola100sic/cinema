@@ -16,7 +16,11 @@ const GenreCard = ({ id, name, onDelete, onEdit }: GenreCardProps) => {
         <h3>{name}</h3>
       </GenreInfo>
       <ButtonContainer>
-        <Button text="Delete" onClick={() => onDelete && onDelete(id)} />
+        <Button
+          text="Delete"
+          color="#ff00004a"
+          onClick={() => onDelete && onDelete(id)}
+        />
         <Button
           text="Edit"
           type="submit"
