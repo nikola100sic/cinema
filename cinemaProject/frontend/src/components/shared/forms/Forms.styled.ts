@@ -8,6 +8,16 @@ export const AddPageStyled = styled.div`
   border-radius: 2px;
   box-shadow: -7px 13px 8px 0px rgba(0, 0, 0, 0.1);
 `;
+
+export const EditPageStyled = styled.div`
+  width: 400px;
+  margin: 0 auto;
+  padding: 30px;
+  /* background-color: azure; */
+  border-radius: 2px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+`;
+
 export const FormTitle = styled.h3`
   text-align: center;
   color: #113775;
