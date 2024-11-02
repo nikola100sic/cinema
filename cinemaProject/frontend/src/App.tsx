@@ -15,7 +15,7 @@ function App() {
           <Routes>
             <Route path="/genres" element={<GenrePage />} />
             <Route path="/genres/add" element={<GenreAddPage />} />
-            <Route path="/genre/edit/:id" element={<GenreEditPage />} />
+            <Route path="/genres/edit/:id" element={<GenreEditPage />} />
           </Routes>
         </Layout>
       </Router>
