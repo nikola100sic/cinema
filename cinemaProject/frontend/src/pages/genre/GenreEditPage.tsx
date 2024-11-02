@@ -31,6 +31,10 @@ const GenreEditPage = () => {
       });
   };
 
+  const getBack = () => {
+    navigate('/genres');
+  };
+
   useEffect(() => {
     getGenre();
   }, [genreId]);
@@ -68,7 +72,13 @@ const GenreEditPage = () => {
           onChange={(e) => setGenre({ ...genre, name: e.target.value })}
         ></FormInput>
         <ButtonContainer>
-          <Button text="Submit" type="submit" />
+          <Button text="Submit" type="submit" color="#0083f3d6" />
+          <Button
+            text="Cancel"
+            type="reset"
+            color="#e74c3c70"
+            onClick={getBack}
+          />
         </ButtonContainer>
       </form>
     </EditPageStyled>
