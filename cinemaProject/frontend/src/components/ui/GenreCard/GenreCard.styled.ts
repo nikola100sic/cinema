@@ -16,4 +16,5 @@ export const ButtonContainer = styled.div`
   display: flex;
   flex-direction: row;
   gap: 35px;
+  justify-content: space-around;
 `;
