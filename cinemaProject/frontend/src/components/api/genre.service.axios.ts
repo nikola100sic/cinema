@@ -10,7 +10,7 @@ const deleteGenre = (id: number) => {
 };
 
 const addGenre = (genre: Genre) => {
-  return CinemaAxios.post('/genres/', genre);
+  return CinemaAxios.post('/genres', genre);
 };
 
 const updateGenre = (updatedGenre: Genre) => {
