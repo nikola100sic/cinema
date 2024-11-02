@@ -5,6 +5,7 @@ import { ToastContainer } from 'react-toastify';
 import GenrePage from './pages/genre/GenrePage';
 import 'react-toastify/dist/ReactToastify.css';
 import GenreAddPage from './pages/genre/GenreAddPage';
+import GenreEditPage from './pages/genre/GenreEditPage';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Routes>
             <Route path="/genres" element={<GenrePage />} />
             <Route path="/genres/add" element={<GenreAddPage />} />
+            <Route path="/genre/edit/:id" element={<GenreEditPage />} />
           </Routes>
         </Layout>
       </Router>
