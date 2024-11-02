@@ -13,9 +13,11 @@ export const EditPageStyled = styled.div`
   width: 400px;
   margin: 0 auto;
   padding: 30px;
-  /* background-color: azure; */
   border-radius: 2px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 20px 10px 7px rgb(28 97 231 / 17%);
+  background: #0b9fef47;
+  border-radius: 12px;
+  margin-top: 100px;
 `;
 
 export const FormTitle = styled.h3`
