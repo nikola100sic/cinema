@@ -14,7 +14,7 @@ const NAVITEMS = [
     path: '/genres',
   },
   {
-    title: 'Movie',
+    title: 'Movies',
     path: '/movies',
   },
 ];
