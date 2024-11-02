@@ -6,17 +6,22 @@ interface GenreCardProps {
   name: string;
   id: number;
   onDelete: (id: number) => void;
+  onEdit?: (id: number) => void;
 }
 
-const GenreCard = ({ id, name, onDelete }: GenreCardProps) => {
+const GenreCard = ({ id, name, onDelete, onEdit }: GenreCardProps) => {
   return (
     <Card>
       <GenreInfo>
         <h3>{name}</h3>
       </GenreInfo>
       <ButtonContainer>
-        <Button text="Delete" onClick={() => onDelete(id)} />{' '}
-        <Button text="Edit" type="submit"></Button>
+        <Button text="Delete" onClick={() => onDelete && onDelete(id)} />
+        <Button
+          text="Edit"
+          type="submit"
+          onClick={() => onEdit && onEdit(id)}
+        ></Button>
       </ButtonContainer>
     </Card>
   );
