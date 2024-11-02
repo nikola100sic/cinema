@@ -14,7 +14,6 @@ export const GenreInfo = styled.div`
 
 export const ButtonContainer = styled.div`
   display: flex;
-  flex-direction: row;
-  gap: 35px;
-  justify-content: space-around;
+  gap: 58px;
+  justify-content: center;
 `;
