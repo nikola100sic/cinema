@@ -67,6 +67,10 @@ const GenrePage = () => {
     navigate('/genres/add');
   };
 
+  const goToEdit = (genreId: any) => {
+    navigate('edit/' + genreId);
+  };
+
   return (
     <>
       {loading ? (
@@ -79,6 +83,7 @@ const GenrePage = () => {
               name={genre.name}
               id={genre.id}
               onDelete={handleDelete}
+              onEdit={goToEdit}
             />
           ))}
         </CardContainer>
