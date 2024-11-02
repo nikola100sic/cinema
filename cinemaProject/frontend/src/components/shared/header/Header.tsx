@@ -4,7 +4,7 @@ import {
   StyledLinks,
   StyledLinksWrapper,
   StyledRegistrationLoginWrapper,
-} from './HeaderStyled';
+} from './Header.styled';
 
 interface HeaderProps {
   brandName: string;
