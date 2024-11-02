@@ -5,6 +5,10 @@ const getGenres = () => {
   return CinemaAxios.get('/genres');
 };
 
+const getGenre = (id: number) => {
+  return CinemaAxios.get(`/genres/${id}`);
+};
+
 const deleteGenre = (id: number) => {
   return CinemaAxios.delete(`/genres/${id}`);
 };
@@ -14,11 +18,12 @@ const addGenre = (genre: Genre) => {
 };
 
 const updateGenre = (updatedGenre: Genre) => {
-  return CinemaAxios.put(`/genres`, updateGenre);
+  return CinemaAxios.put(`/genres`, updatedGenre);
 };
 
 export default {
   getGenres,
+  getGenre,
   addGenre,
   updateGenre,
   deleteGenre,
