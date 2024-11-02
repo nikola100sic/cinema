@@ -2,7 +2,6 @@ import React, { ReactNode } from 'react';
 import { Content, StyledPageContainer } from './Layout.styled';
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
-import path from 'path';
 
 const NAVITEMS = [
   {
