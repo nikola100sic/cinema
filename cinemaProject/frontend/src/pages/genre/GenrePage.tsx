@@ -73,6 +73,9 @@ const GenrePage = () => {
 
   return (
     <>
+      <AddButtonContainer>
+        <AddButton onClick={() => goToAdd()}>Add new genre</AddButton>
+      </AddButtonContainer>
       {loading ? (
         <Loader loading={loading} />
       ) : (
@@ -88,9 +91,6 @@ const GenrePage = () => {
           ))}
         </CardContainer>
       )}
-      <AddButtonContainer>
-        <AddButton onClick={() => goToAdd()}>Add new genre</AddButton>
-      </AddButtonContainer>
     </>
   );
 };
