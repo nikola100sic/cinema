@@ -40,8 +40,8 @@ public class GenreController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @PutMapping
-    public ResponseEntity<Genre> edit (@RequestBody Genre genre){
+    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Genre> edit (@RequestBody Genre genre ){
         genreService.update(genre, genre.getId());
         return new ResponseEntity<>(genre,HttpStatus.OK);
     }
