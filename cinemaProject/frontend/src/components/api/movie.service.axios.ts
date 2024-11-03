@@ -14,11 +14,11 @@ const addMovie = (movie: Movie) => {
 };
 
 const updateMovie = (updatedMovie: Movie) => {
-  return CinemaAxios.put(`movies/`, updateMovie);
+  return CinemaAxios.put(`/movies/`, updateMovie);
 };
 
 const deleteMovie = (id: number) => {
-  return CinemaAxios.delete(`/movies /${id}`);
+  return CinemaAxios.delete(`/movies/${id}`);
 };
 
 export default {
@@ -26,4 +26,5 @@ export default {
   getMovies,
   addMovie,
   updateMovie,
+  deleteMovie,
 };
