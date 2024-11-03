@@ -2,10 +2,10 @@ import styled from 'styled-components';
 import { StyledButton } from '../../components/shared/button/Button.styled';
 
 export const MovieCardContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px;
 `;
 
 export const AddButtonContainer = styled.div`
