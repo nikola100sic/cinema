@@ -19,6 +19,7 @@ export const StyledButton = styled.button<{
     //(like :hover, :active) to the current element. It improves readability and consistency, especially in complex styles.
     //While not technically necessary for simple pseudo-classes, & is a best practice for clear, maintainable code.
   }
+  border-radius: 15px;
 `;
 
 export const SubmitButton = styled(StyledButton)`
