@@ -6,6 +6,7 @@ export const Card = styled.div`
   flex-direction: column;
   align-items: center;
   flex: 1 1 calc(33.33% - 20px);
+  border-radius: 13px;
 `;
 
 export const GenreInfo = styled.div`
@@ -16,4 +17,5 @@ export const ButtonContainer = styled.div`
   display: flex;
   gap: 58px;
   justify-content: center;
+  margin-bottom: 15px;
 `;
