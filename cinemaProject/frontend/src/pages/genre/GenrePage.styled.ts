@@ -10,7 +10,6 @@ export const CardContainer = styled.div`
 
 export const AddButtonContainer = styled.div`
   display: flex;
-  margin-top: 30px;
   justify-content: flex-end;
   flex-direction: row;
   margin-bottom: 11px;
