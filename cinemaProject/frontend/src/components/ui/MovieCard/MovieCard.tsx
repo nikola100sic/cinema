@@ -32,7 +32,7 @@ const MovieCard = ({
         <Label> Movie name:</Label>
         {name}
         <Label>Duration:</Label>
-        {duration}
+        {duration} min
         <Label>Image:</Label>
         {image}
         <Label>Genres:</Label>
