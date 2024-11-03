@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import GenreAddPage from './pages/genre/GenreAddPage';
 import GenreEditPage from './pages/genre/GenreEditPage';
 import MoviePage from './pages/movie/MoviePage';
+import MovieAddPage from './pages/movie/MovieAddPage';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/genres/add" element={<GenreAddPage />} />
             <Route path="/genres/edit/:id" element={<GenreEditPage />} />
             <Route path="/movies" element={<MoviePage />} />
+            <Route path="/movies/add" element={<MovieAddPage />} />
           </Routes>
         </Layout>
       </Router>
