@@ -23,7 +23,7 @@ export const StyledButton = styled.button<{
 `;
 
 export const SubmitButton = styled(StyledButton)`
-  background-color: #3e9cc6;
+  background-color: #0014ff66;
   color: black;
   border: none;
   display: block;
