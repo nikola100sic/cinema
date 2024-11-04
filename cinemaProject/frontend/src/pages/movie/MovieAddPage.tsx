@@ -1,10 +1,20 @@
 import React from 'react';
+import {
+  AddPageStyled,
+  FormLabel,
+  FormTitle,
+} from '../../components/shared/forms/Forms.styled';
 
 const MovieAddPage = () => {
   return (
-    <div>
-      <p>Add movie</p>
-    </div>
+    <AddPageStyled>
+      <FormTitle>Add movie</FormTitle>
+      <FormLabel>Movie name:</FormLabel>
+      <FormLabel></FormLabel>
+      <FormLabel></FormLabel>
+      <FormLabel></FormLabel>
+      <FormLabel></FormLabel>
+    </AddPageStyled>
   );
 };
 
