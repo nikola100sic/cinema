@@ -43,3 +43,21 @@ export const FormLabel = styled.label`
   margin: 10px 0 5px;
   color: #555;
 `;
+
+export const CheckBoxGroup = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+`;
+
+export const CheckBoxItem = styled.div`
+  width: 48%;
+  display: flex;
+  align-items: center;
+`;
+
+export const CheckboxInput = styled.input`
+  margin-right: 10px;
+  cursor: pointer;
+  transform: scale(1.4);
+`;
