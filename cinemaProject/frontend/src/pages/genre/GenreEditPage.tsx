@@ -4,9 +4,9 @@ import { Genre } from '../../types/Genre';
 import genreServiceAxios from '../../components/api/genre.service.axios';
 import {
   EditPageStyled,
-  FormInput,
   FormLabel,
-  FormTitle,
+  GenreFormInput,
+  GenreFormTitle,
 } from '../../components/shared/forms/Forms.styled';
 import { ButtonContainer } from '../../components/ui/GenreCard/GenreCard.styled';
 import Button from '../../components/shared/button/Button';
@@ -62,15 +62,15 @@ const GenreEditPage = () => {
 
   return (
     <EditPageStyled>
-      <FormTitle>Edit genre</FormTitle>
+      <GenreFormTitle>Edit genre</GenreFormTitle>
       <form onSubmit={handleSubmit}>
         <FormLabel htmlFor="name">Genre name</FormLabel>
-        <FormInput
+        <GenreFormInput
           value={genre.name}
           type="text"
           id="name"
           onChange={(e) => setGenre({ ...genre, name: e.target.value })}
-        ></FormInput>
+        ></GenreFormInput>
         <ButtonContainer>
           <Button text="Submit" type="submit" color="#0083f3d6" />
           <Button
