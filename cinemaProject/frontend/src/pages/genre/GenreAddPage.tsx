@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import Button from '../../components/shared/button/Button';
 import {
-  AddPageStyled,
-  FormInput,
+  AddGenrePageStyled,
   FormLabel,
-  FormTitle,
+  GenreFormInput,
+  GenreFormTitle,
 } from '../../components/shared/forms/Forms.styled';
 import { toast } from 'react-toastify';
 import genreServiceAxios from '../../components/api/genre.service.axios';
@@ -45,22 +45,22 @@ const GenreAddPage = () => {
   };
 
   return (
-    <AddPageStyled>
+    <AddGenrePageStyled>
       <form onSubmit={handleSubmit}>
-        <FormTitle>Add genre</FormTitle>
+        <GenreFormTitle>Add genre</GenreFormTitle>
         <FormLabel>Name:</FormLabel>
-        <FormInput
+        <GenreFormInput
           type="text"
           placeholder="Enter genre name"
           onChange={handleChange}
           name="name"
           value={genre.name}
-        ></FormInput>
+        ></GenreFormInput>
         <ButtonContainer>
           <Button text="Add" type="submit" />
         </ButtonContainer>
       </form>
-    </AddPageStyled>
+    </AddGenrePageStyled>
   );
 };
 
