@@ -14,6 +14,7 @@ export const AddMoviePageStyled = styled(AddGenrePageStyled)`
   flex-direction: row;
   width: 50%;
   background-color: #109bec;
+  box-shadow: 9px 20px 13px 11px rgb(6 152 243 / 36%);
 `;
 
 export const EditPageStyled = styled.div`
