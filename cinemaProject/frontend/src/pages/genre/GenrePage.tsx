@@ -35,8 +35,18 @@ const GenrePage = () => {
     toast(
       <div>
         <div>Are you sure you want to delete this genre?</div>
-        <Button text="Yes" variant="filled" onClick={() => confirmDelete(id)} />
-        <Button text="No" variant="outlined" onClick={() => toast.dismiss()} />
+        <Button
+          text="Yes"
+          variant="filled"
+          onClick={() => confirmDelete(id)}
+          color="#0052f779"
+        />
+        <Button
+          text="No"
+          variant="outlined"
+          onClick={() => toast.dismiss()}
+          color="rgba(247, 0, 0, 0.507)"
+        />
       </div>,
       {
         autoClose: false,
