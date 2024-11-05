@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const MovieCardStyled = styled.div`
   display: flex;
-  background-color: #4e96c73b;
+  background-color: #109af857;
   padding: 13px;
   border-radius: 18px;
   flex-direction: column;
