@@ -13,8 +13,8 @@ export const AddGenrePageStyled = styled.div`
 export const AddMoviePageStyled = styled(AddGenrePageStyled)`
   flex-direction: row;
   width: 50%;
-  background-color: #109bec;
-  box-shadow: 9px 20px 13px 11px rgb(6 152 243 / 36%);
+  background-color: #109bec69;
+  box-shadow: 9px 20px 13px 11px rgb(6 152 243 / 12%);
 `;
 
 export const EditPageStyled = styled.div`
@@ -83,7 +83,7 @@ export const MoviePicture = styled.div`
   display: flex;
   justify-content: center;
   overflow: hidden;
-  height: 550px;
+  height: 400px;
   img {
     width: auto;
     max-width: 100%;
