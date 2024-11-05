@@ -148,7 +148,7 @@ const MovieAddPage = () => {
         </MovieInfoAddPage>
         <MoviePicture>
           <img
-            src={`${process.env.PUBLIC_URL}/movie.jpg`}
+            src={`${process.env.PUBLIC_URL}/cinema-logo.png`}
             alt="Example"
             loading="lazy"
           />
