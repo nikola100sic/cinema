@@ -8,10 +8,12 @@ import GenreAddPage from './pages/genre/GenreAddPage';
 import GenreEditPage from './pages/genre/GenreEditPage';
 import MoviePage from './pages/movie/MoviePage';
 import MovieAddPage from './pages/movie/MovieAddPage';
+import { GlobalStyle } from './components/ui/GlobalStyle/GlobalStyled';
 
 function App() {
   return (
     <>
+      <GlobalStyle />
       <Router>
         <Layout>
           <Routes>
