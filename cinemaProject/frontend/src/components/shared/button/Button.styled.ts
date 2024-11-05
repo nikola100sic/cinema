@@ -12,8 +12,7 @@ export const StyledButton = styled.button<{
       : props.$variant === 'filled'
         ? 'red'
         : 'transparent'};
-  border: ${(props) =>
-    props.$variant === 'filled' ? 'none' : '1px solid #ff000094'};
+  border: ${(props) => (props.$variant === 'filled' ? 'none' : ' #ff000094')};
   &:hover {
     cursor: pointer; // Using & in styled-components is helpful because it explicitly ties pseudo-classes and states
     //(like :hover, :active) to the current element. It improves readability and consistency, especially in complex styles.
