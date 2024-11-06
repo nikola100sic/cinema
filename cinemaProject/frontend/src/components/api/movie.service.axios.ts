@@ -14,7 +14,7 @@ const addMovie = (movie: Movie) => {
 };
 
 const updateMovie = (updatedMovie: Movie) => {
-  return CinemaAxios.put(`/movies/`, updateMovie);
+  return CinemaAxios.put(`/movies`, updatedMovie);
 };
 
 const deleteMovie = (id: number) => {
