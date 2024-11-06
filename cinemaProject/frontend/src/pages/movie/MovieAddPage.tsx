@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import {
-  AddMoviePageStyled,
   CheckBoxGroup,
   CheckboxInput,
   CheckBoxItem,
   FormLabel,
   MovieFormInput,
   MovieFormTitle,
-  MovieInfoAddPage,
+  MovieInfoPage,
+  MoviePageStyled,
   MoviePicture,
 } from '../../components/shared/forms/Forms.styled';
 import { Genre } from '../../types/Genre';
@@ -100,8 +100,8 @@ const MovieAddPage = () => {
 
   return (
     <>
-      <AddMoviePageStyled>
-        <MovieInfoAddPage>
+      <MoviePageStyled>
+        <MovieInfoPage>
           <MovieFormTitle>Add movie</MovieFormTitle>
           <form onSubmit={handleSubmit}>
             <FormLabel>Movie name:</FormLabel>
@@ -145,15 +145,15 @@ const MovieAddPage = () => {
               <Button text="Add movie" type="submit" />
             </ButtonContainer>
           </form>
-        </MovieInfoAddPage>
+        </MovieInfoPage>
         <MoviePicture>
           <img
             src={`${process.env.PUBLIC_URL}/cinema-logo.png`}
-            alt="Example"
+            alt="cinema logo"
             loading="lazy"
           />
         </MoviePicture>
-      </AddMoviePageStyled>
+      </MoviePageStyled>
     </>
   );
 };
