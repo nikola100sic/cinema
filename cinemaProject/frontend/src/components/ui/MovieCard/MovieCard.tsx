@@ -41,7 +41,7 @@ const MovieCard = ({
       <ButtonContainer>
         <Button
           text="Delete"
-          color="#ff00004a"
+          color="#ffffff7a"
           onClick={() => onDelete && onDelete(id)}
         />
         <Button
