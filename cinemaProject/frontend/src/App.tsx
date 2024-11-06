@@ -34,10 +34,10 @@ function App() {
         hideProgressBar
         rtl={false}
         pauseOnFocusLoss
-        theme="light"
+        theme="dark"
         style={{
           position: '-moz-initial',
-          top: '5%',
+          top: '9%',
           zIndex: 9999,
         }}
       />
