@@ -10,7 +10,7 @@ export const AddGenrePageStyled = styled.div`
   border-radius: 2px;
   box-shadow: -7px 13px 8px 0px rgba(0, 0, 0, 0.1);
 `;
-export const AddMoviePageStyled = styled(AddGenrePageStyled)`
+export const MoviePageStyled = styled(AddGenrePageStyled)`
   flex-direction: row;
   width: 50%;
   background-color: #109bec69;
@@ -51,7 +51,7 @@ export const GenreFormInput = styled.input`
 `;
 
 export const MovieFormInput = styled(GenreFormInput)`
-  width: 80%;
+  width: 90%;
 `;
 
 export const FormLabel = styled.label`
@@ -84,6 +84,7 @@ export const MoviePicture = styled.div`
   justify-content: center;
   overflow: hidden;
   height: 400px;
+  margin-left: 80px;
   img {
     width: auto;
     max-width: 100%;
@@ -91,7 +92,7 @@ export const MoviePicture = styled.div`
     object-fit: contain;
   }
 `;
-export const MovieInfoAddPage = styled.div`
+export const MovieInfoPage = styled.div`
   display: flex;
   flex-direction: column;
 `;
