@@ -50,8 +50,14 @@ const MoviePage = () => {
           text="Yes"
           variant="filled"
           onClick={() => confirmDelete(movieId)}
+          color="#0052f779"
         />
-        <Button text="No" variant="outlined" onClick={() => toast.dismiss()} />
+        <Button
+          text="No"
+          variant="outlined"
+          onClick={() => toast.dismiss()}
+          color="rgba(247, 0, 0, 0.507)"
+        />
       </>,
       {
         autoClose: false,
