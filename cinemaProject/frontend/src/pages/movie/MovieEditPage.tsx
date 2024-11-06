@@ -17,6 +17,7 @@ import {
 import { ButtonContainer } from '../../components/ui/MovieCard/MovieCard.styled';
 import Button from '../../components/shared/button/Button';
 import genreServiceAxios from '../../components/api/genre.service.axios';
+import { toast } from 'react-toastify';
 
 const MovieEditPage = () => {
   const routeParams = useParams();
@@ -58,60 +59,97 @@ const MovieEditPage = () => {
 
   const setMoviesGenres = (genre: Genre) => {
     setMovie((prevMovie) => {
-      const newGenres = prevMovie.genres.includes(genre)
-        ? prevMovie.genres.filter((g) => g !== genre)
+      const genreExists = prevMovie.genres.some((g) => g.id === genre.id);
+      const newGenres = genreExists
+        ? prevMovie.genres.filter((g) => g.id !== genre.id)
         : [...prevMovie.genres, genre];
       return { ...prevMovie, genres: newGenres };
     });
   };
-
   useEffect(() => {
     getMovie();
     getGenres();
   }, [movieId]);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setMovie((prevMovie) => ({
+      ...prevMovie,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (
+      !movie.name ||
+      !movie.image ||
+      movie.genres.length === 0 ||
+      movie.duration <= 0
+    ) {
+      toast.warn('You must fill all fields');
+      return;
+    }
+    movieServiceAxios
+      .updateMovie(movie)
+      .then(() => {
+        navigate('/movies');
+        toast.success('Successfuly movie update!');
+      })
+      .catch(() => {
+        toast.error('Error with updating!');
+        console.log('Error');
+      });
+  };
 
   return (
     <>
       <MoviePageStyled>
         <MovieInfoPage>
           <MovieFormTitle>Edit movie</MovieFormTitle>
-          <FormLabel>Movie name:</FormLabel>
-          <MovieFormInput
-            type="text"
-            placeholder="Enter movie name"
-            name="name"
-            value={movie.name}
-          />
-          <FormLabel>Duration:</FormLabel>
-          <MovieFormInput
-            type="number"
-            placeholder="Enter movie duration"
-            name="duration"
-            value={movie.duration}
-          />
-          <FormLabel>Image:</FormLabel>
-          <MovieFormInput
-            type="text"
-            placeholder="Add movie image"
-            name="image"
-            value={movie.image}
-          />
-          <FormLabel>Genres:</FormLabel>
-          <CheckBoxGroup>
-            {genres.map((genre) => (
-              <CheckBoxItem key={genre.id}>
-                <CheckboxInput
-                  type="checkbox"
-                  value={genre.id}
-                  checked={movie.genres.some((el) => el.id === genre.id)}
-                />
-                {genre.name}
-              </CheckBoxItem>
-            ))}
-          </CheckBoxGroup>
-          <ButtonContainer>
-            <Button text="Submit" type="submit" />
-          </ButtonContainer>
+          <form onSubmit={handleSubmit}>
+            <FormLabel>Movie name:</FormLabel>
+            <MovieFormInput
+              type="text"
+              placeholder="Enter movie name"
+              name="name"
+              value={movie.name}
+              onChange={handleInputChange}
+            />
+            <FormLabel>Duration:</FormLabel>
+            <MovieFormInput
+              type="number"
+              placeholder="Enter movie duration"
+              name="duration"
+              value={movie.duration}
+              onChange={handleInputChange}
+            />
+            <FormLabel>Image:</FormLabel>
+            <MovieFormInput
+              type="text"
+              placeholder="Add movie image"
+              name="image"
+              value={movie.image}
+              onChange={handleInputChange}
+            />
+            <FormLabel>Genres:</FormLabel>
+            <CheckBoxGroup>
+              {genres.map((genre) => (
+                <CheckBoxItem key={genre.id}>
+                  <CheckboxInput
+                    type="checkbox"
+                    value={genre.id}
+                    checked={movie.genres.some((el) => el.id === genre.id)}
+                    onChange={() => setMoviesGenres(genre)}
+                  />
+                  {genre.name}
+                </CheckBoxItem>
+              ))}
+            </CheckBoxGroup>
+            <ButtonContainer>
+              <Button text="Submit" type="submit" />
+            </ButtonContainer>
+          </form>
         </MovieInfoPage>
         <MoviePicture>
           <img
