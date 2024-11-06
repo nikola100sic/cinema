@@ -9,6 +9,7 @@ import GenreEditPage from './pages/genre/GenreEditPage';
 import MoviePage from './pages/movie/MoviePage';
 import MovieAddPage from './pages/movie/MovieAddPage';
 import { GlobalStyle } from './components/ui/GlobalStyle/GlobalStyled';
+import MovieEditPage from './pages/movie/MovieEditPage';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="/genres/edit/:id" element={<GenreEditPage />} />
             <Route path="/movies" element={<MoviePage />} />
             <Route path="/movies/add" element={<MovieAddPage />} />
+            <Route path="/movies/edit/:id" element={<MovieEditPage />} />
           </Routes>
         </Layout>
       </Router>
