@@ -47,7 +47,7 @@ public class MovieController {
         return  new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @PutMapping
+    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Movie> edit (@RequestBody  Movie movie){
         movieService.update(movie, movie.getId());
         return new ResponseEntity<>(movie,HttpStatus.OK);
