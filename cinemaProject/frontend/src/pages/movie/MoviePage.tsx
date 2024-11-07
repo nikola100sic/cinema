@@ -11,10 +11,13 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Button from '../../components/shared/button/Button';
+import Pagination from '../../components/shared/pagination/Pagination';
 
 const MoviePage = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+
   const navigate = useNavigate();
 
   const getMovies = () => {
@@ -83,6 +86,10 @@ const MoviePage = () => {
         toast.error('Error');
       });
   };
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
   return (
     <>
       <AddButtonContainer>
@@ -104,6 +111,11 @@ const MoviePage = () => {
               onEdit={goToEdit}
             />
           ))}
+          <Pagination
+            totalPages={6}
+            currentPage={4}
+            onPageChange={handlePageChange}
+          ></Pagination>
         </MovieCardContainer>
       )}
     </>
