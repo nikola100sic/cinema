@@ -22,7 +22,7 @@ export const EditPageStyled = styled.div`
   margin: 0 auto;
   padding: 30px;
   border-radius: 2px;
-  box-shadow: 2px 20px 10px 7px rgb(28 97 231 / 17%);
+  box-shadow: 9px 10px 19px 9px #00bcf74a;
   background: #0b9fef47;
   border-radius: 12px;
   margin-top: 100px;
