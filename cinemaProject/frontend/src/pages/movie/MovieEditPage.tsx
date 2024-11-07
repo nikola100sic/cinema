@@ -23,6 +23,7 @@ const MovieEditPage = () => {
   const routeParams = useParams();
   const navigate = useNavigate();
   const movieId = routeParams.id;
+  const [loading, setLoading] = useState(false);
 
   const [genres, setGenres] = useState<Genre[]>([]);
   const [movie, setMovie] = useState<Movie>({
@@ -90,15 +91,19 @@ const MovieEditPage = () => {
       toast.warn('You must fill all fields');
       return;
     }
+    setLoading(true);
     movieServiceAxios
       .updateMovie(movie)
       .then(() => {
         navigate('/movies');
-        toast.success('Successfuly movie update!');
+        toast.success('Successfully updated movie!');
       })
       .catch(() => {
         toast.error('Error with updating!');
         console.log('Error');
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
@@ -147,7 +152,7 @@ const MovieEditPage = () => {
               ))}
             </CheckBoxGroup>
             <ButtonContainer>
-              <Button text="Submit" type="submit" />
+              <Button text="Submit" type="submit" disabled={loading} />
             </ButtonContainer>
           </form>
         </MovieInfoPage>
