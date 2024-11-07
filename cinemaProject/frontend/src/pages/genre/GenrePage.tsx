@@ -11,10 +11,13 @@ import {
 } from './GenrePage.styled';
 import { toast } from 'react-toastify';
 import Button from '../../components/shared/button/Button';
+import Pagination from '../../components/shared/pagination/Pagination';
 
 const GenrePage = () => {
   const [genres, setGenres] = useState<Genre[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+
   const navigate = useNavigate();
 
   const getGenres = async () => {
@@ -81,6 +84,10 @@ const GenrePage = () => {
     navigate('edit/' + genreId);
   };
 
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
+
   return (
     <>
       <AddButtonContainer>
@@ -99,6 +106,11 @@ const GenrePage = () => {
               onEdit={goToEdit}
             />
           ))}
+          <Pagination
+            totalPages={2}
+            currentPage={1}
+            onPageChange={handlePageChange}
+          />
         </CardContainer>
       )}
     </>
