@@ -31,7 +31,7 @@ public class MovieController {
                                              @RequestParam (value = "pageNo", defaultValue = "0") int pageNo){
         Page<Movie> moviePage = movieService.findAll(name,durationFrom,durationTo,pageNo);
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Total-Pages", Integer.toString(moviePage.getTotalPages()));
+        headers.add("total-pages", Integer.toString(moviePage.getTotalPages()));
        return new ResponseEntity<>(moviePage.getContent(), headers ,HttpStatus.OK);
     }
 
