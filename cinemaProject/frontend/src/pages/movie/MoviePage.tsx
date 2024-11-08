@@ -17,6 +17,7 @@ const MoviePage = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [currentPage, setCurrentPage] = useState<number>(1);
+  const [totalPages, setTotalPages] = useState<number>(0);
 
   const navigate = useNavigate();
 
@@ -25,8 +26,10 @@ const MoviePage = () => {
       .getMovies()
       .then((res) => {
         setMovies(res.data);
-        console.log(res.data);
         setLoading(false);
+        const totalPages = res.headers['total-pages'];
+        setTotalPages(totalPages);
+        console.log(totalPages);
       })
       .catch((error) => {
         console.log(error);
@@ -112,8 +115,8 @@ const MoviePage = () => {
             />
           ))}
           <Pagination
-            totalPages={6}
-            currentPage={4}
+            totalPages={totalPages}
+            currentPage={1}
             onPageChange={handlePageChange}
           ></Pagination>
         </MovieCardContainer>
