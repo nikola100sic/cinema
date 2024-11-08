@@ -19,12 +19,12 @@ export const Pagination = ({
     }
   };
 
-  const pages = Array.from({ length: totalPages }, (_, index) => index + 1);
+  const pages = Array.from({ length: totalPages }, (_, index) => index);
 
   return (
     <PaginationContainer>
       <PaginationButton
-        disabled={currentPage === 1}
+        disabled={currentPage === 0}
         onClick={() => handlePageClick(currentPage - 1)}
       >
         Prev
@@ -36,12 +36,12 @@ export const Pagination = ({
           onClick={() => handlePageClick(page)}
           $isActive={page === currentPage}
         >
-          {page}
+          {page + 1}
         </PaginationButton>
       ))}
 
       <PaginationButton
-        disabled={currentPage === totalPages}
+        disabled={currentPage === totalPages - 1}
         onClick={() => handlePageClick(currentPage + 1)}
       >
         Next
