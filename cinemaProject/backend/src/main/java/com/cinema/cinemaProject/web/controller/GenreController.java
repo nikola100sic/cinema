@@ -3,6 +3,8 @@ package com.cinema.cinemaProject.web.controller;
 import com.cinema.cinemaProject.model.Genre;
 import com.cinema.cinemaProject.service.GenreService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +24,15 @@ public class GenreController {
         List<Genre> genres = genreService.findAll();
         return new ResponseEntity<>(genres, HttpStatus.OK);
     }
+
+    @GetMapping("/pagination")
+    public ResponseEntity<List<Genre>> getAllPage(@RequestParam (value = "pageNo", defaultValue = "0") int pageNo) {
+        Page<Genre> genrePage = genreService.findAllSearch(pageNo);
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Total-Pages", Integer.toString(genrePage.getTotalPages()));
+        return new ResponseEntity<>(genrePage.getContent(), headers ,HttpStatus.OK);
+    }
+
 
     @GetMapping("/{id}")
     public ResponseEntity<Genre> getOne(@PathVariable Long id) {
