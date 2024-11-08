@@ -31,7 +31,7 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public Page<Movie> findAll(String name, int durationFrom, int durationTo, int page) {
-        Page<Movie>movies = movieRepository.search(name,durationFrom, durationTo, PageRequest.of(page,2));
+        Page<Movie>movies = movieRepository.search(name,durationFrom, durationTo, PageRequest.of(page,3));
         if(movies.isEmpty()){
             throw  new MoviesListEmpty();
         }
