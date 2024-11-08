@@ -8,6 +8,8 @@ import com.cinema.cinemaProject.repository.GenreRepository;
 import com.cinema.cinemaProject.repository.MovieRepository;
 import com.cinema.cinemaProject.service.GenreService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,6 +31,15 @@ public class GenreServiceImpl implements GenreService {
     @Override
     public List<Genre> findAll() {
         List<Genre>genres = genreRepository.findAll();
+        if(genres.isEmpty()){
+            throw new GenresListEmpty();
+        }
+        return genres;
+    }
+
+    @Override
+    public Page<Genre> findAllSearch(int page) {
+        Page<Genre>genres = genreRepository.findAll(PageRequest.of(page,3));
         if(genres.isEmpty()){
             throw new GenresListEmpty();
         }
