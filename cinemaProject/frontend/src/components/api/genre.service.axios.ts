@@ -5,6 +5,12 @@ const getGenres = () => {
   return CinemaAxios.get('/genres');
 };
 
+const getGenresSearch = (pageNo: number) => {
+  return CinemaAxios.get('/genres/pagination', {
+    params: { pageNo },
+  });
+};
+
 const getGenre = (id: number) => {
   return CinemaAxios.get(`/genres/${id}`);
 };
@@ -23,6 +29,7 @@ const updateGenre = (updatedGenre: Genre) => {
 
 export default {
   getGenres,
+  getGenresSearch,
   getGenre,
   addGenre,
   updateGenre,
