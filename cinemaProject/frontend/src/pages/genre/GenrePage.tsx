@@ -16,23 +16,28 @@ import Pagination from '../../components/shared/pagination/Pagination';
 const GenrePage = () => {
   const [genres, setGenres] = useState<Genre[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [currentPage, setCurrentPage] = useState<number>(0);
+  const [totalPages, setTotalPages] = useState<number>(0);
 
   const navigate = useNavigate();
 
-  const getGenres = async () => {
+  const getGenres = async (pageNo: number) => {
+    setLoading(true);
     try {
-      const res = await genreServiceAxios.getGenres();
+      const res = await genreServiceAxios.getGenresSearch(pageNo);
       setGenres(res.data);
+      const totalPages = res.headers['total-pages'];
+      setTotalPages(totalPages);
       setLoading(false);
     } catch (error) {
       console.log(error);
+      setLoading(false);
     }
   };
 
   useEffect(() => {
-    getGenres();
-  }, []);
+    getGenres(currentPage);
+  }, [currentPage]);
 
   const handleDelete = (id: number) => {
     toast(
@@ -107,8 +112,8 @@ const GenrePage = () => {
             />
           ))}
           <Pagination
-            totalPages={2}
-            currentPage={1}
+            totalPages={totalPages}
+            currentPage={currentPage}
             onPageChange={handlePageChange}
           />
         </CardContainer>
