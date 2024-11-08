@@ -16,29 +16,28 @@ import Pagination from '../../components/shared/pagination/Pagination';
 const MoviePage = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [currentPage, setCurrentPage] = useState<number>(0);
   const [totalPages, setTotalPages] = useState<number>(0);
 
   const navigate = useNavigate();
 
-  const getMovies = () => {
-    movieServiceAxios
-      .getMovies()
-      .then((res) => {
-        setMovies(res.data);
-        setLoading(false);
-        const totalPages = res.headers['total-pages'];
-        setTotalPages(totalPages);
-        console.log(totalPages);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  const getMovies = async (pageNo: number) => {
+    setLoading(true);
+    try {
+      const res = await movieServiceAxios.getMovies(pageNo);
+      setMovies(res.data);
+      const totalPages = res.headers['total-pages'];
+      setTotalPages(totalPages);
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
-    getMovies();
-  }, []);
+    getMovies(currentPage);
+  }, [currentPage]);
 
   const goToAdd = () => {
     navigate('/movies/add');
@@ -116,9 +115,9 @@ const MoviePage = () => {
           ))}
           <Pagination
             totalPages={totalPages}
-            currentPage={1}
+            currentPage={currentPage}
             onPageChange={handlePageChange}
-          ></Pagination>
+          />
         </MovieCardContainer>
       )}
     </>
