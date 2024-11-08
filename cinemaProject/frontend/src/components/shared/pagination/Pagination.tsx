@@ -19,13 +19,12 @@ export const Pagination = ({
     }
   };
 
-  // Create an array of page numbers based on the totalPages number
   const pages = Array.from({ length: totalPages }, (_, index) => index + 1);
 
   return (
     <PaginationContainer>
       <PaginationButton
-        disabled={currentPage === 1} // Disable if on the first page
+        disabled={currentPage === 1}
         onClick={() => handlePageClick(currentPage - 1)}
       >
         Prev
@@ -35,14 +34,14 @@ export const Pagination = ({
         <PaginationButton
           key={page}
           onClick={() => handlePageClick(page)}
-          isActive={page === currentPage}
+          $isActive={page === currentPage}
         >
           {page}
         </PaginationButton>
       ))}
 
       <PaginationButton
-        disabled={currentPage === totalPages} // Disable if on the last page
+        disabled={currentPage === totalPages}
         onClick={() => handlePageClick(currentPage + 1)}
       >
         Next
