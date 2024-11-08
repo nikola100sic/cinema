@@ -1,10 +1,11 @@
 import { CinemaAxios } from './axios';
 import { Movie } from '../../types/Movie';
 
-const getMovies = () => {
-  return CinemaAxios.get('/movies');
+const getMovies = (pageNo: number) => {
+  return CinemaAxios.get('/movies', {
+    params: { pageNo },
+  });
 };
-
 const getMovie = (id: number) => {
   return CinemaAxios.get(`/movies/${id}`);
 };
