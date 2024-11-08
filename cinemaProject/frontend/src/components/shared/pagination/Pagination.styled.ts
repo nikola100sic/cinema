@@ -7,9 +7,10 @@ export const PaginationContainer = styled.div`
   width: 100%;
 `;
 
-export const PaginationButton = styled(StyledButton)<{ isActive?: boolean }>`
-  background-color: ${({ isActive }) => (isActive ? '#757575ad' : '#007bff00')};
-  color: ${({ isActive }) => (isActive ? '#ffffff' : '#121212')};
+export const PaginationButton = styled(StyledButton)<{ $isActive?: boolean }>`
+  background-color: ${({ $isActive }) =>
+    $isActive ? '#757575ad' : '#007bff00'};
+  color: ${({ $isActive }) => ($isActive ? '#ffffff' : '#121212')};
   border: none;
   padding: 5px 10px;
   margin-right: 5px;
