@@ -6,8 +6,8 @@ const Screenings = () => {
     <>
       <StyledMarqueeText>
         <p>
-          Welcome to the world of movies! Don’t miss the latest screenings and
-          special offers.
+          Welcome to the world of movies! Don't miss out! New at our cinema:
+          Joker movie premiere. Tickets starting at just 199.99 RSD.
         </p>
       </StyledMarqueeText>
     </>
