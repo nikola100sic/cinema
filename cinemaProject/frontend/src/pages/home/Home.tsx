@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyledMarqueeText } from './Home.styled';
 
-const Screenings = () => {
+const Home = () => {
   return (
     <>
       <StyledMarqueeText>
@@ -14,4 +14,4 @@ const Screenings = () => {
   );
 };
 
-export default Screenings;
+export default Home;

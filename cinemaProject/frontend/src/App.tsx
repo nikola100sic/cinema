@@ -2,14 +2,15 @@ import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import './App.css';
 import Layout from './components/shared/layout/Layout';
 import { ToastContainer } from 'react-toastify';
-import GenrePage from './pages/genre/GenrePage';
 import 'react-toastify/dist/ReactToastify.css';
-import GenreAddPage from './pages/genre/GenreAddPage';
-import GenreEditPage from './pages/genre/GenreEditPage';
-import MoviePage from './pages/movie/MoviePage';
-import MovieAddPage from './pages/movie/MovieAddPage';
 import { GlobalStyle } from './components/ui/GlobalStyle/GlobalStyled';
-import MovieEditPage from './pages/movie/MovieEditPage';
+import MoviePage from './pages/movies/MoviePage';
+import MovieAddPage from './pages/movies/MovieAddPage';
+import MovieEditPage from './pages/movies/MovieEditPage';
+import GenrePage from './pages/genres/GenrePage';
+import GenreAddPage from './pages/genres/GenreAddPage';
+import GenreEditPage from './pages/genres/GenreEditPage';
+import Home from './pages/home/Home';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Router>
         <Layout>
           <Routes>
+            <Route path="/home" element={<Home />} />
             <Route path="/genres" element={<GenrePage />} />
             <Route path="/genres/add" element={<GenreAddPage />} />
             <Route path="/genres/edit/:id" element={<GenreEditPage />} />
