@@ -149,7 +149,7 @@ const MovieAddPage = () => {
         <MoviePicture>
           <img
             src={`${process.env.PUBLIC_URL}/cinema-logo.png`}
-            alt="cinema logo"
+            alt="cinema"
             loading="lazy"
           />
         </MoviePicture>
