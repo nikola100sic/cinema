@@ -10,6 +10,7 @@ interface ButtonProps {
   variant?: ButtonVariant;
   type?: ButtonType;
   color?: string;
+  textColor?: string;
   disabled?: boolean;
 }
 
@@ -19,6 +20,7 @@ const Button = ({
   variant,
   type,
   color,
+  textColor,
   disabled,
 }: ButtonProps) => {
   return (
@@ -29,6 +31,7 @@ const Button = ({
           onClick={onClick}
           type={type}
           $color={color}
+          $textColor={textColor}
           disabled={disabled}
         >
           {text}
@@ -37,6 +40,7 @@ const Button = ({
         <StyledButton
           $variant={variant}
           $color={color}
+          $textColor={textColor}
           disabled={disabled}
           type={type}
           onClick={onClick}
@@ -48,6 +52,6 @@ const Button = ({
   );
 };
 
-//Prefixing with $ ($color) helps distinguish styling-specific props from other props that might be passed to the component.
+// Prefixing with $ ($color, $textColor) helps distinguish styling-specific props from other props that might be passed to the component.
 
 export default Button;
