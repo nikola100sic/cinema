@@ -2,12 +2,14 @@ package com.cinema.cinemaProject.web.controller;
 
 import com.cinema.cinemaProject.model.Genre;
 import com.cinema.cinemaProject.service.GenreService;
+import jakarta.annotation.security.PermitAll;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,6 +27,7 @@ public class GenreController {
         return new ResponseEntity<>(genres, HttpStatus.OK);
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/pagination")
     public ResponseEntity<List<Genre>> getAllPage(@RequestParam (value = "pageNo", defaultValue = "0") int pageNo) {
         Page<Genre> genrePage = genreService.findAllSearch(pageNo);

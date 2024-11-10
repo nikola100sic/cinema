@@ -1,10 +1,14 @@
 package com.cinema.cinemaProject.service.impl;
 
+import com.cinema.cinemaProject.exception.users.UserAlreadyExistsException;
 import com.cinema.cinemaProject.model.User;
 import com.cinema.cinemaProject.repository.UserRepository;
 import com.cinema.cinemaProject.service.UserService;
+import com.cinema.cinemaProject.web.dto.user.RegistrationDTO;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,7 +30,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User save(User user) {
+    public User save(RegistrationDTO registrationDTO) {
+        if (findbyUsername(registrationDTO.getUsername()).isPresent()) {
+            throw new UserAlreadyExistsException(registrationDTO.getUsername());
+        }
+        User user = new User();
+        user.setUsername(registrationDTO.getUsername());
+        user.setPassword(registrationDTO.getPassword());
+        user.setFirstName(registrationDTO.getFirstName());
+        user.setLastName(registrationDTO.getLastName());
+        user.setBirthDate(registrationDTO.getBirthDate());
+        user.setRole(registrationDTO.getRole());
         return userRepository.save(user);
     }
 

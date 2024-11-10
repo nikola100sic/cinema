@@ -4,6 +4,7 @@ import com.cinema.cinemaProject.exception.genres.GenreNotFoundException;
 import com.cinema.cinemaProject.exception.genres.GenresListEmpty;
 import com.cinema.cinemaProject.exception.movies.MovieNotFoundException;
 import com.cinema.cinemaProject.exception.movies.MoviesListEmpty;
+import com.cinema.cinemaProject.exception.users.UserAlreadyExistsException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,6 +37,11 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value = DataIntegrityViolationException.class)
     public ResponseEntity<Void> handle() {
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(UserAlreadyExistsException.class)
+    public ResponseEntity<String> handleExistUser (UserAlreadyExistsException ex){
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
     }
 }
 

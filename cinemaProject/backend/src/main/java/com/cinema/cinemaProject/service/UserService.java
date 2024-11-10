@@ -1,6 +1,7 @@
 package com.cinema.cinemaProject.service;
 
 import com.cinema.cinemaProject.model.User;
+import com.cinema.cinemaProject.web.dto.user.RegistrationDTO;
 import org.springframework.data.domain.Page;
 
 import java.util.List;
@@ -11,7 +12,7 @@ public interface UserService {
 
     List<User> findAll();
 
-    User save(User user);
+    User save(RegistrationDTO registrationDTO);
 
     User delete(Long id);
 
