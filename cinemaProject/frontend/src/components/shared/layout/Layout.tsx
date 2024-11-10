@@ -16,6 +16,10 @@ const NAVITEMS = [
     title: 'Movies',
     path: '/movies',
   },
+  {
+    title: 'Contact',
+    path: '/contact',
+  },
 ];
 
 interface Props {
@@ -27,7 +31,7 @@ const Layout = ({ children, ...props }: Props) => {
     <StyledPageContainer>
       <Header brandName="Cinema application" navItems={NAVITEMS}></Header>
       <Content>{children}</Content>
-      <Footer text="© Cinema app by Nikola"></Footer>
+      <Footer text="© 2024 Cinema. All rights reserved. | Made by Nikola"></Footer>
     </StyledPageContainer>
   );
 };
