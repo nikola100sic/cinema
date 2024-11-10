@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const StyledButton = styled.button<{
   $variant?: string;
   $color?: string;
+  $textColor?: string; // Dodajte opcionalni prop za boju teksta
 }>`
   width: 100px;
   height: 40px;
@@ -13,10 +14,9 @@ export const StyledButton = styled.button<{
         ? 'red'
         : 'transparent'};
   border: ${(props) => (props.$variant === 'filled' ? 'none' : ' #ff000094')};
+  color: ${(props) => props.$textColor || 'black'};
   &:hover {
-    cursor: pointer; // Using & in styled-components is helpful because it explicitly ties pseudo-classes and states
-    //(like :hover, :active) to the current element. It improves readability and consistency, especially in complex styles.
-    //While not technically necessary for simple pseudo-classes, & is a best practice for clear, maintainable code.
+    cursor: pointer;
   }
   border-radius: 15px;
 `;
