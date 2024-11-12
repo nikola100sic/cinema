@@ -1,7 +1,7 @@
 package com.cinema.cinemaProject.service.impl;
 
-import com.cinema.cinemaProject.exception.genres.GenresListEmpty;
 import com.cinema.cinemaProject.exception.genres.GenreNotFoundException;
+import com.cinema.cinemaProject.exception.genres.GenresListEmpty;
 import com.cinema.cinemaProject.model.Genre;
 import com.cinema.cinemaProject.model.Movie;
 import com.cinema.cinemaProject.repository.GenreRepository;
