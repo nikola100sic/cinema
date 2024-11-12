@@ -1,5 +1,6 @@
 package com.cinema.cinemaProject.web.controller;
 
+import com.cinema.cinemaProject.model.Screening;
 import com.cinema.cinemaProject.service.MovieService;
 import com.cinema.cinemaProject.service.ScreeningService;
 import com.cinema.cinemaProject.web.dto.MovieWithScreeningsDTO;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
