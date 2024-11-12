@@ -100,6 +100,7 @@ public class MovieServiceImpl implements MovieService {
         movieScreeningsDTO.setImage(movie.getImage());
         movieScreeningsDTO.setGenres(createGenreDTOs(movie.getGenres()));
         movieScreeningsDTO.setScreenings(screeningDTOs);
+        movieScreeningsDTO.setRating(movie.getRating());
 
         return movieScreeningsDTO;
     }
