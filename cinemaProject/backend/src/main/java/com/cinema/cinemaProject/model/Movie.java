@@ -27,6 +27,9 @@ public class Movie {
     @Column(unique = true, nullable = false)
     private String image;
 
+    @Column(nullable = false)
+    private int rating;
+
     @ManyToMany
     @JoinTable(
             name = "movie_genre",
