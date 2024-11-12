@@ -1,8 +1,10 @@
 package com.cinema.cinemaProject.service;
 
 import com.cinema.cinemaProject.model.Movie;
+import com.cinema.cinemaProject.web.dto.MovieWithScreeningsDTO;
 import org.springframework.data.domain.Page;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface MovieService {
@@ -16,4 +18,6 @@ public interface MovieService {
     Movie update (Movie movie, Long movieId);
 
     Movie delete (Long movieId);
+
+    List<MovieWithScreeningsDTO> getForDate (LocalDate date);
 }
