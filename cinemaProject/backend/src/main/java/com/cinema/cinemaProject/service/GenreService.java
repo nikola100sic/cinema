@@ -6,6 +6,7 @@ import org.springframework.data.domain.Page;
 import java.util.List;
 
 public interface GenreService {
+
     Genre findOne(Long genreId);
 
     List<Genre> findAll();
