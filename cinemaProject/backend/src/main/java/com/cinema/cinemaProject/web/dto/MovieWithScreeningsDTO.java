@@ -15,6 +15,8 @@ public class MovieWithScreeningsDTO {
 
     private String image;
 
+    private int rating;
+
     private List<GenreDTO> genres;
 
     private List<ScreeningDTO> screenings;
