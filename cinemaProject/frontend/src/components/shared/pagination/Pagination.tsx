@@ -1,5 +1,3 @@
-import React from 'react';
-import Button from '../button/Button';
 import { PaginationButton, PaginationContainer } from './Pagination.styled';
 
 interface PaginationProps {
