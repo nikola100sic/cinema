@@ -17,10 +17,13 @@ const DateButtonSelector = ({ onDateSelect }: DateButtonSelectorProps) => {
       const date = new Date(today);
       date.setDate(today.getDate() + i);
 
+      const formattedDate = date.toISOString().split('T')[0];
       const dayOfWeek = daysOfWeek[date.getDay()];
 
-      const formattedDate = `${dayOfWeek}, ${String(date.getDate()).padStart(2, '0')}.${String(date.getMonth() + 1).padStart(2, '0')}`;
-      dates.push(formattedDate);
+      dates.push({
+        display: `${dayOfWeek}, ${String(date.getDate()).padStart(2, '0')}.${String(date.getMonth() + 1).padStart(2, '0')}`,
+        value: formattedDate,
+      });
     }
     return dates;
   };
@@ -35,13 +38,13 @@ const DateButtonSelector = ({ onDateSelect }: DateButtonSelectorProps) => {
 
   return (
     <DateSelector>
-      {dates.map((date) => (
+      {dates.map(({ display, value }) => (
         <Button
-          text={date}
-          key={date}
+          text={display}
+          key={value}
           color="#ffffff4d"
           textColor="white"
-          onClick={() => handleClick(date)}
+          onClick={() => handleClick(value)}
         />
       ))}
     </DateSelector>
