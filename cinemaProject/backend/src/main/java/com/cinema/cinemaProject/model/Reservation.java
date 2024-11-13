@@ -20,5 +20,5 @@ public class Reservation {
     private boolean isActive;
 
     @ManyToOne
-    private User user; //
+    private User user;
 }
