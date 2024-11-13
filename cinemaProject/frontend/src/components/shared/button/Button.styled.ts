@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const StyledButton = styled.button<{
   $variant?: string;
   $color?: string;
-  $textColor?: string; // Dodajte opcionalni prop za boju teksta
+  $textColor?: string;
 }>`
   width: 100px;
   height: 40px;
