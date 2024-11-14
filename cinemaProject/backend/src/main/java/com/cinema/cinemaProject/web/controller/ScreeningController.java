@@ -28,12 +28,13 @@ public class ScreeningController {
     private final MovieService movieService;
 
     @GetMapping
-    public ResponseEntity<List<MovieWithScreeningsDTO>> getMoviesWithScreeningsByDate(
-            @RequestParam(value = "date", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
+    public ResponseEntity<List<MovieWithScreeningsDTO>> getMoviesWithScreenings(
+            @RequestParam(value = "date", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date,
+            @RequestParam(value = "genreId", required = false)Long genreId) {
         if (date == null) {
             date = LocalDate.now();
         }
-        List<MovieWithScreeningsDTO> screeningsFoDate = movieService.getForDate(date);
+        List<MovieWithScreeningsDTO> screeningsFoDate = movieService.getForDateAndGenre(date, genreId);
         return new ResponseEntity<>(screeningsFoDate, HttpStatus.OK);
     }
 }
