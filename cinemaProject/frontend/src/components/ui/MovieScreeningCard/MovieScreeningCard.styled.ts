@@ -27,9 +27,12 @@ export const MovieTitle = styled.h3`
 `;
 
 export const Details = styled.p`
+  display: flex;
   font-size: 15px;
   color: #555;
   margin: 10px;
+  flex-direction: row;
+  justify-content: flex-end;
 `;
 
 export const ShowtimesAndRating = styled.div`
