@@ -19,5 +19,5 @@ public interface MovieService {
 
     Movie delete (Long movieId);
 
-    List<MovieWithScreeningsDTO> getForDate (LocalDate date);
+    List<MovieWithScreeningsDTO> getForDateAndGenre (LocalDate date, Long genreId);
 }
