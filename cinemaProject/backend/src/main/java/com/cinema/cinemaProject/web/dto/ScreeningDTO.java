@@ -14,5 +14,7 @@ public class ScreeningDTO {
 
     private LocalDate screeningDate;
 
+    private int hallNumber;
+
     private Long hallId;
 }
