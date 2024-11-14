@@ -5,8 +5,8 @@ import MovieScreeningCard from '../../components/ui/MovieScreeningCard/MovieScre
 import screeningServiceAxios from '../../components/api/screening.service.axios';
 import { MovieScreening } from '../../types/MovieScreening';
 import { Details } from '../../components/ui/MovieScreeningCard/MovieScreeningCard.styled';
+import Dropdown from '../../components/shared/dropdown/Dropdown';
 
-// Funkcija za formatiranje datuma u YYYY-MM-DD
 const formatDate = (date: Date) => {
   return date.toISOString().split('T')[0];
 };
@@ -16,7 +16,7 @@ const Home = () => {
   const [screenings, setScreening] = useState<MovieScreening[]>([]);
   const [selectedDate, setSelectedDate] = useState(todayDate);
   const [showMarquee, setShowMarquee] = useState(true);
-  const [noScreenings, setNoScreenings] = useState(false); // New state for no screenings
+  const [noScreenings, setNoScreenings] = useState(false);
 
   const handleDateSelect = (date: string) => {
     setSelectedDate(date);
@@ -35,6 +35,7 @@ const Home = () => {
     try {
       const res = await screeningServiceAxios.getScreenings(date);
       setScreening(res.data);
+      console.log(res.data);
       setNoScreenings(false);
     } catch (error: any) {
       if (error.response && error.response.status === 404) {
