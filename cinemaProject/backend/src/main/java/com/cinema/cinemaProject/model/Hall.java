@@ -14,7 +14,7 @@ public class Hall {
 
     private String name;
 
-    private int number;
+    private int hallNumber;
 
     private int capacity;
 
