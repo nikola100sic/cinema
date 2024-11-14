@@ -23,9 +23,9 @@ INSERT INTO movie_genre (movie_id, genre_id) VALUES (3,4);
 INSERT INTO movie_genre (movie_id, genre_id) VALUES (4,4);
 INSERT INTO movie_genre (movie_id, genre_id) VALUES (4,6);
 
-INSERT INTO halls (`capacity`, `id`, `name`) VALUES ('20', '1', 'Gold ');
-INSERT INTO halls (`capacity`, `id`, `name`) VALUES ('15', '2', 'Silver ');
-INSERT INTO halls (`capacity`, `id`, `name`) VALUES ('10', '3', 'Bronze ');
+INSERT INTO halls (`capacity`, `id`, `hall_number` ,`name`) VALUES ('20', '1', 1,'Gold ');
+INSERT INTO halls (`capacity`, `id`, `hall_number`,`name`) VALUES ('15', '2', 2,'Silver ');
+INSERT INTO halls (`capacity`, `id`, `hall_number`,`name`) VALUES ('10', '3', 3,'Bronze ');
 
 INSERT INTO `seats` ( `seat_column`, `hall_id`,`seat_row`, `id`) VALUES ('1', '1','1', '1');
 INSERT INTO `seats` ( `seat_column`, `hall_id`,`seat_row`, `id`) VALUES ('1', '1','2', '2');
