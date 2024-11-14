@@ -121,6 +121,7 @@ public class MovieServiceImpl implements MovieService {
                     screeningDTO.setScreeningDate(screening.getScreening_date());
                     screeningDTO.setScreeningTime(screening.getScreening_time());
                     screeningDTO.setHallId(screening.getHall().getId());
+                    screeningDTO.setHallNumber(screening.getHall().getHallNumber());
                     return screeningDTO;
                 })
                 .collect(Collectors.toList());
