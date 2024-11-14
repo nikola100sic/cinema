@@ -1,5 +1,6 @@
 package com.cinema.cinemaProject.service.impl;
 
+import com.cinema.cinemaProject.exception.genres.GenreNotFoundException;
 import com.cinema.cinemaProject.exception.movies.MovieNotFoundException;
 import com.cinema.cinemaProject.exception.movies.MoviesListEmpty;
 import com.cinema.cinemaProject.exception.screenings.ScreeningsNotFoundException;
@@ -70,8 +71,15 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
-    public List<MovieWithScreeningsDTO> getForDate(LocalDate date) {
-        List<Movie> movies = movieRepository.findAll();
+    public List<MovieWithScreeningsDTO> getForDateAndGenre(LocalDate date, Long genreId) {
+        List<Movie> movies;
+        if (genreId != null) {
+            Genre genre = genreRepository.findById(genreId)
+                    .orElseThrow(() -> new GenreNotFoundException(genreId));
+            movies = movieRepository.findByGenresContaining(genre);
+        } else {
+            movies = movieRepository.findAll();
+        }
 
         List<MovieWithScreeningsDTO> movieWithScreeningsDTOList = movies.stream()
                 .map(movie -> createMovieWithScreeningsDTO(movie, date))
