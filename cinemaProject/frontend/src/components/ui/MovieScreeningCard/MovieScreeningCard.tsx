@@ -61,7 +61,7 @@ const MovieScreeningCard = ({
           {screenings.map((screening) => (
             <Button
               key={screening.id}
-              text={screening.screeningTime.slice(0, 5)}
+              text={`Hall: ${screening.hallNumber}| ${screening.screeningTime.slice(0, 5)}`}
               onClick={() => handleTimeClick(screening.id)}
               color="#ffffff8c"
             />
