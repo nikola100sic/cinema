@@ -14,6 +14,8 @@ public class Hall {
 
     private String name;
 
+    private int number;
+
     private int capacity;
 
     @OneToMany(mappedBy = "hall", cascade = CascadeType.ALL)
