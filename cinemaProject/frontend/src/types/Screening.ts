@@ -5,4 +5,5 @@ export interface Screening {
   screeningTime: string;
   screeningDate: string;
   hallId: number;
+  hallNumber: number;
 }
