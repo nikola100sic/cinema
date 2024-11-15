@@ -5,10 +5,10 @@ INSERT INTO genres (id, name) VALUES (4, 'Drama');
 INSERT INTO genres (id, name) VALUES (5, 'Science fiction');
 INSERT INTO genres (id, name) VALUES (6, 'Romance');
 
-INSERT INTO movies (name, duration, image,rating) VALUES ('The Godfather', 140, 'image1',5);
-INSERT INTO movies (name, duration, image,rating) VALUES ('Meet the Fockers', 162, 'image2',4);
-INSERT INTO movies (name, duration, image,rating) VALUES ('Joker', 178, 'image3',5);
-INSERT INTO movies (name, duration, image,rating) VALUES ('Titanic', 150, 'image4',4);
+INSERT INTO movies (name, image_url,duration,rating) VALUES ('The Godfather', 'https://m.media-amazon.com/images/M/MV5BYTJkNGQyZDgtZDQ0NC00MDM0LWEzZWQtYzUzZDEwMDljZWNjXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg',140,5);
+INSERT INTO movies (name, image_url,duration,rating) VALUES ('Meet the Fockers', 'https://images.moviesanywhere.com/62b942d4c4f4edec0252a503c60b2dcd/7f622a83-bf28-488f-9dd3-ba3134b92058.jpg',162, 4);
+INSERT INTO movies (name, image_url,duration,rating) VALUES ('Joker', 'https://m.media-amazon.com/images/M/MV5BNzY3OWQ5NDktNWQ2OC00ZjdlLThkMmItMDhhNDk3NTFiZGU4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg',178,5);
+INSERT INTO movies (name, image_url,duration,rating) VALUES ('Titanic', 'https://m.media-amazon.com/images/M/MV5BYzYyN2FiZmUtYWYzMy00MzViLWJkZTMtOGY1ZjgzNWMwN2YxXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg',150, 4);
 
 INSERT INTO `cinema`.`user` (`id`, `password`, `username`) VALUES ('1', '111', 'dzoni');
 
