@@ -107,7 +107,7 @@ const MoviePage = () => {
               name={movie.name}
               id={movie.id}
               duration={movie.duration}
-              image={movie.image}
+              imageUrl={movie.imageUrl}
               genres={movie.genres}
               onDelete={handleDelete}
               onEdit={goToEdit}
