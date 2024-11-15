@@ -4,6 +4,7 @@ import {
   ButtonContainer,
   Label,
   MovieCardStyled,
+  MovieImageStyled,
   MovieInfo,
 } from './MovieCard.styled';
 import Button from '../../shared/button/Button';
@@ -11,7 +12,7 @@ interface MovieCardProps {
   id: number;
   name: string;
   duration: number;
-  image: string;
+  imageUrl: string;
   genres?: Genre[];
   onEdit?: (id: number) => void;
   onDelete?: (id: number) => void;
@@ -21,7 +22,7 @@ const MovieCard = ({
   id,
   name,
   duration,
-  image,
+  imageUrl,
   genres,
   onDelete,
   onEdit,
@@ -33,8 +34,9 @@ const MovieCard = ({
         {name}
         <Label>Duration:</Label>
         {duration} min
-        <Label>Image:</Label>
-        {image}
+        <MovieImageStyled>
+          <img src={imageUrl} alt={`${name} poster`} />
+        </MovieImageStyled>
         <Label>Genres:</Label>
         {genres?.map((genre, index) => <li key={index}>{genre.name}</li>)}
       </MovieInfo>
