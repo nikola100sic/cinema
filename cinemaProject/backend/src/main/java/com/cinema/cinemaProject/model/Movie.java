@@ -24,11 +24,12 @@ public class Movie {
     @Column(nullable = false)
     private int duration;
 
-    @Column(unique = true, nullable = false)
-    private String image;
-
     @Column(nullable = false)
     private int rating;
+
+    @Column(nullable = false, unique = true)
+    private String imageUrl;
+
 
     @ManyToMany
     @JoinTable(
