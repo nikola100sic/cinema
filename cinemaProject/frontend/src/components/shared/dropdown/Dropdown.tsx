@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FormLabel } from '../forms/Forms.styled';
-import { Select } from './Dropdown.styled';
+import { DropdownStyle, Select } from './Dropdown.styled';
 
 interface Option {
   id: number;
@@ -10,31 +10,31 @@ interface Option {
 interface DropdownProps {
   label: String;
   options: Option[];
-  selectedValue: string;
-  onChange: (value: string) => void;
+  selectedValue: number;
+  onChange: (value: number) => void;
 }
 
 const Dropdown = ({ label, options, onChange }: DropdownProps) => {
   const [selectedValue, setSelectedValue] = useState<any>();
   return (
-    <div>
-      <FormLabel htmlFor={`${label}select`}>{label}</FormLabel>
+    <DropdownStyle>
+      <FormLabel htmlFor={`${label}select`}></FormLabel>
       <Select
         id={`${label}select`}
         value={selectedValue}
         onChange={(e) => {
-          onChange(e.target.value);
+          onChange(Number(e.target.value));
           setSelectedValue(e.target.value);
         }}
       >
-        <option value="">Select an option</option>
+        <option value={0}>Select genre</option>
         {options.map((option) => (
           <option key={option.id} value={option.id}>
             {option.name}
           </option>
         ))}
       </Select>
-    </div>
+    </DropdownStyle>
   );
 };
 
