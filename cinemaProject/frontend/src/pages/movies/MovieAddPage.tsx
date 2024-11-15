@@ -24,7 +24,7 @@ const MovieAddPage = () => {
     id: 0,
     name: '',
     duration: 0,
-    image: '',
+    imageUrl: '',
     genres: [] as Genre[],
   });
   const navigate = useNavigate();
@@ -56,7 +56,7 @@ const MovieAddPage = () => {
 
     if (
       movie.name === '' ||
-      movie.image === '' ||
+      movie.imageUrl === '' ||
       movie.duration === null ||
       movie.genres.length === 0
     ) {
@@ -71,7 +71,7 @@ const MovieAddPage = () => {
         console.log(event.target);
         setMovie({
           id: 0,
-          image: '',
+          imageUrl: '',
           name: '',
           duration: 0,
           genres: [],
@@ -123,9 +123,9 @@ const MovieAddPage = () => {
             <FormLabel>Image:</FormLabel>
             <MovieFormInput
               type="text"
-              placeholder="Add movie image"
-              name="image"
-              value={movie.image}
+              placeholder="Enter movie image URL"
+              name="imageUrl"
+              value={movie.imageUrl}
               onChange={handleChange}
             />
             <FormLabel>Genres:</FormLabel>
