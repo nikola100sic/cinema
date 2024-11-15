@@ -4,18 +4,17 @@ export const DropdownStyle = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  padding: 5px;
-  margin: 10px;
+  margin-right: 27px;
 `;
 
 export const Select = styled.select`
-  background-color: gainsboro;
+  display: flex;
+  background-color: #1a72ac;
   font-style: italic;
-  font-size: 13px;
-  color: black;
+  color: white;
   padding: 8px;
   border: 1px;
-  border-radius: 5px;
+  border-radius: 12px;
   cursor: pointer;
-  padding: 12px;
+  padding: 10px;
 `;
