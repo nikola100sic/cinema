@@ -30,7 +30,7 @@ const MovieEditPage = () => {
     id: 0,
     name: '',
     duration: 0,
-    image: '',
+    imageUrl: '',
     genres: [] as Genre[],
   });
 
@@ -84,7 +84,7 @@ const MovieEditPage = () => {
     e.preventDefault();
     if (
       !movie.name ||
-      !movie.image ||
+      !movie.imageUrl ||
       movie.genres.length === 0 ||
       movie.duration <= 0
     ) {
@@ -133,8 +133,8 @@ const MovieEditPage = () => {
             <MovieFormInput
               type="text"
               placeholder="Add movie image"
-              name="image"
-              value={movie.image}
+              name="imageUrl"
+              value={movie.imageUrl}
               onChange={handleInputChange}
             />
             <FormLabel>Genres:</FormLabel>
