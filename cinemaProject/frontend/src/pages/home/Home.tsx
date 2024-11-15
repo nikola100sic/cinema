@@ -109,7 +109,7 @@ const Home = () => {
                   name={movieScreening.name}
                   duration={movieScreening.duration}
                   genres={movieScreening.genres}
-                  image={movieScreening.image}
+                  imageUrl={movieScreening.imageUrl}
                   rating={movieScreening.rating}
                   screenings={movieScreening.screenings}
                 />
