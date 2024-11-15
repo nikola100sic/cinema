@@ -18,7 +18,7 @@ interface MovieScreeningCardProps {
   genres: Genre[];
   duration: number;
   screenings: Screening[];
-  image: string;
+  imageUrl: string;
   rating: number;
 }
 
@@ -27,7 +27,7 @@ const MovieScreeningCard = ({
   genres,
   duration,
   screenings,
-  image,
+  imageUrl,
   rating,
 }: MovieScreeningCardProps) => {
   const navigate = useNavigate();
@@ -49,7 +49,9 @@ const MovieScreeningCard = ({
 
   return (
     <MovieScreeningCardStyled>
-      <ImageStyled>Image: {image}</ImageStyled>
+      <ImageStyled>
+        <img src={imageUrl} alt={`${name} poster`} />
+      </ImageStyled>
       <MovieInfoStyled>
         <MovieTitle>Name: {name}</MovieTitle>
         <Details>Duration: {duration} min</Details>
