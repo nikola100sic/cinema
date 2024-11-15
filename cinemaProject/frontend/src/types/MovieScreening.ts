@@ -6,7 +6,7 @@ export interface MovieScreening {
   id: number;
   duration: number;
   genres: Genre[];
-  image: string;
+  imageUrl: string;
   rating: number;
   screenings: Screening[];
 }
