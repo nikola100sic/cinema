@@ -6,6 +6,8 @@ import screeningServiceAxios from '../../components/api/screening.service.axios'
 import { MovieScreening } from '../../types/MovieScreening';
 import { Details } from '../../components/ui/MovieScreeningCard/MovieScreeningCard.styled';
 import Dropdown from '../../components/shared/dropdown/Dropdown';
+import genreServiceAxios from '../../components/api/genre.service.axios';
+import { Genre } from '../../types/Genre';
 
 const formatDate = (date: Date) => {
   return date.toISOString().split('T')[0];
@@ -14,7 +16,9 @@ const formatDate = (date: Date) => {
 const Home = () => {
   const todayDate = formatDate(new Date());
   const [screenings, setScreening] = useState<MovieScreening[]>([]);
+  const [genres, setGenres] = useState<Genre[]>([]);
   const [selectedDate, setSelectedDate] = useState(todayDate);
+  const [selectedGenre, setSelectedGenre] = useState<number>(0);
   const [showMarquee, setShowMarquee] = useState(true);
   const [noScreenings, setNoScreenings] = useState(false);
 
@@ -31,9 +35,12 @@ const Home = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const getScreenings = async (date: string) => {
+  const getScreenings = async (date: string, genreId?: number) => {
     try {
-      const res = await screeningServiceAxios.getScreenings(date);
+      const res = await screeningServiceAxios.getScreenings(
+        date,
+        genreId && genreId !== 0 ? genreId : undefined,
+      );
       setScreening(res.data);
       console.log(res.data);
       setNoScreenings(false);
@@ -47,8 +54,24 @@ const Home = () => {
     }
   };
 
+  const getGenres = async () => {
+    try {
+      const res = await genreServiceAxios.getGenres();
+      console.log(res.data);
+      setGenres(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleGenreChange = (genreId: number) => {
+    setSelectedGenre(genreId);
+    getScreenings(selectedDate, genreId);
+  };
+
   useEffect(() => {
-    getScreenings(selectedDate);
+    getScreenings(selectedDate, selectedGenre);
+    getGenres();
   }, [selectedDate]);
 
   return (
@@ -69,8 +92,16 @@ const Home = () => {
         <>
           <StyledScreenings>
             <Details>Screenings for date: {selectedDate}</Details>
+            <Dropdown
+              label="Select Genre"
+              options={genres}
+              selectedValue={selectedGenre}
+              onChange={handleGenreChange}
+            />
             {noScreenings ? (
-              <Details>No screenings available for the selected date.</Details>
+              <Details>
+                No screenings available for the selected criteria.
+              </Details>
             ) : (
               screenings.map((movieScreening) => (
                 <MovieScreeningCard
