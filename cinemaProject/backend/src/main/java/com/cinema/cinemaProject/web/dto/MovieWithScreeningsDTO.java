@@ -12,10 +12,10 @@ public class MovieWithScreeningsDTO {
     private String name;
 
     private int duration;
-
-    private String image;
-
+    
     private int rating;
+
+    private String imageUrl;
 
     private List<GenreDTO> genres;
 
