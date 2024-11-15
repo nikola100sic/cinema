@@ -21,6 +21,20 @@ export const Label = styled.span`
   font-size: 16px;
 `;
 
+export const MovieImageStyled = styled.div`
+  display: flex;
+  width: 200px;
+  height: 300px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+`;
+
 export const ButtonContainer = styled.div`
   display: flex;
   gap: 58px;
