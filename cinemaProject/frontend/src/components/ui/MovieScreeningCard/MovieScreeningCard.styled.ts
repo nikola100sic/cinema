@@ -5,13 +5,23 @@ export const MovieScreeningCardStyled = styled.div`
   flex-direction: row;
   align-items: center;
   margin: 10px 27px 12px;
-  background-color: #4cd9645e;
+  background-color: rgb(0 0 0 / 6%);
   border-radius: 13px;
   padding: 10px;
 `;
 
 export const ImageStyled = styled.div`
   display: flex;
+  width: 190px;
+  height: 300px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+  }
 `;
 
 export const MovieInfoStyled = styled.div`
