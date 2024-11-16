@@ -1,5 +1,7 @@
 package com.cinema.cinemaProject.service.impl;
 
+import com.cinema.cinemaProject.exception.screenings.ScreeningNotFoundException;
+import com.cinema.cinemaProject.exception.screenings.ScreeningsNotFoundException;
 import com.cinema.cinemaProject.model.Screening;
 import com.cinema.cinemaProject.repository.ScreeningRepository;
 import com.cinema.cinemaProject.service.ScreeningService;
@@ -20,5 +22,13 @@ public class ScreeningServiceImpl implements ScreeningService {
     @Override
     public Screening createScreening(Screening screening) {
         return screeningRepository.save(screening);
+    }
+
+    @Override
+    public Screening delete(Long screeningId) {
+        Screening screeningForDelete = screeningRepository.findById(screeningId).
+                orElseThrow(()-> new  ScreeningNotFoundException(screeningId));
+        screeningRepository.delete(screeningForDelete);
+        return screeningForDelete;
     }
 }
