@@ -1,5 +1,6 @@
 package com.cinema.cinemaProject.web.controller;
 
+import com.cinema.cinemaProject.model.Movie;
 import com.cinema.cinemaProject.model.Screening;
 import com.cinema.cinemaProject.service.MovieService;
 import com.cinema.cinemaProject.service.ScreeningService;
@@ -9,10 +10,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -37,5 +35,11 @@ public class ScreeningController {
         List<MovieWithScreeningsDTO> screeningsFoDate = movieService.getForDateAndGenre(date, genreId);
         return new ResponseEntity<>(screeningsFoDate, HttpStatus.OK);
     }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void>delete(@PathVariable Long id){
+        screeningService.delete(id);
+        return  new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
 }
 
