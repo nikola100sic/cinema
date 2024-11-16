@@ -4,6 +4,7 @@ import com.cinema.cinemaProject.exception.genres.GenreNotFoundException;
 import com.cinema.cinemaProject.exception.genres.GenresListEmpty;
 import com.cinema.cinemaProject.exception.movies.MovieNotFoundException;
 import com.cinema.cinemaProject.exception.movies.MoviesListEmpty;
+import com.cinema.cinemaProject.exception.screenings.ScreeningNotFoundException;
 import com.cinema.cinemaProject.exception.screenings.ScreeningsNotFoundException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
@@ -36,6 +37,11 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(ScreeningsNotFoundException.class)
     public  ResponseEntity<String> handleEmptyListException(ScreeningsNotFoundException ex){
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(ScreeningNotFoundException.class)
+    public ResponseEntity<String>handleEntityNotFoundException (ScreeningNotFoundException ex){
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
     }
 
