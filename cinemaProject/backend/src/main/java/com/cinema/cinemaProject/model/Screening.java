@@ -14,9 +14,10 @@ public class Screening {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
+    @Column(nullable = false)
     private LocalDate screening_date;
 
+    @Column(nullable = false)
     private LocalTime screening_time;
 
     @ManyToOne
