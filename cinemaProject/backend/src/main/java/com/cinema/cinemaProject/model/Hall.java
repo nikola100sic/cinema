@@ -3,6 +3,7 @@ package com.cinema.cinemaProject.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.HashSet;
 import java.util.Set;
 @Entity
 @Data
@@ -18,6 +19,6 @@ public class Hall {
 
     private int capacity;
 
-    @OneToMany(mappedBy = "hall", cascade = CascadeType.ALL)
-    private Set<Seat>seats;
+    @OneToMany(mappedBy = "hall", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Set<Seat> seats = new HashSet<>();
 }
