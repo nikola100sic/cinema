@@ -25,6 +25,11 @@ public class ScreeningController {
 
     private final MovieService movieService;
 
+    @GetMapping("/all")
+    public ResponseEntity<List<Screening>> getScreening() {
+        List<Screening> allScreenings = screeningService.getAllScreenings();
+        return new ResponseEntity<>(allScreenings, HttpStatus.OK);
+    }
     @GetMapping
     public ResponseEntity<List<MovieWithScreeningsDTO>> getMoviesWithScreenings(
             @RequestParam(value = "date", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date,
@@ -34,6 +39,13 @@ public class ScreeningController {
         }
         List<MovieWithScreeningsDTO> screeningsFoDate = movieService.getForDateAndGenre(date, genreId);
         return new ResponseEntity<>(screeningsFoDate, HttpStatus.OK);
+    }
+
+    @PostMapping
+    public ResponseEntity<Screening>createScreening (@RequestBody Screening screening){
+        screeningService.createScreening(screening);
+        return new ResponseEntity<>(screening, HttpStatus.OK);
+
     }
     @DeleteMapping("/{id}")
     public ResponseEntity<Void>delete(@PathVariable Long id){
