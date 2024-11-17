@@ -39,7 +39,7 @@ public class GenreServiceImpl implements GenreService {
 
     @Override
     public Page<Genre> findAllSearch(int page) {
-        Page<Genre>genres = genreRepository.findAll(PageRequest.of(page,3));
+        Page<Genre>genres = genreRepository.findAll(PageRequest.of(page,5));
         if(genres.isEmpty()){
             throw new GenresListEmpty();
         }
