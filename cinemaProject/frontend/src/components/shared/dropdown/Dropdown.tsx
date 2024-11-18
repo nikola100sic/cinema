@@ -27,7 +27,7 @@ const Dropdown = ({ label, options, onChange }: DropdownProps) => {
           setSelectedValue(e.target.value);
         }}
       >
-        <option value={0}>Select genre</option>
+        <option value={0}>Select option</option>
         {options.map((option) => (
           <option key={option.id} value={option.id}>
             {option.name}
