@@ -11,6 +11,8 @@ public interface MovieService {
 
     Movie findOne (Long movieId);
 
+    List<Movie>getAll ();
+
     Page<Movie> findAll (String name, int durationFrom, int durationTo, int page);
 
     Movie save (Movie movie);
