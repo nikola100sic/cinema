@@ -10,11 +10,13 @@ public class ScreeningDTO {
 
     private Long id;
 
-    private LocalTime screeningTime;
+    private LocalTime screening_time;
 
-    private LocalDate screeningDate;
+    private LocalDate screening_date;
 
-    private int hallNumber;
+    private HallDTO hallDto;
 
-    private Long hallId;
+//    private int hallNumber;
+//
+//    private Long hallId;
 }
