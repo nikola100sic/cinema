@@ -31,3 +31,11 @@ export const StyledScreenings = styled.div`
 export const StyledHome = styled.div`
   display: flex;
 `;
+
+export const ButtonContainerHome = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 6px;
+  margin-right: 27px;
+  display: flex;
+`;
