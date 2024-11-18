@@ -25,7 +25,12 @@ public class MovieController {
         return new  ResponseEntity<>(movie, HttpStatus.OK);
     }
     @GetMapping
-    public ResponseEntity<List<Movie>>getAll(@RequestParam (required = false)String name,
+    public ResponseEntity<List<Movie>> getAll(){
+        List<Movie> movies = movieService.getAll();
+        return new ResponseEntity<>(movies,HttpStatus.OK);
+    }
+    @GetMapping("/search")
+    public ResponseEntity<List<Movie>>search(@RequestParam (required = false)String name,
                                              @RequestParam (required = false, defaultValue = "0") int durationFrom,
                                              @RequestParam (required = false, defaultValue = "100000000") int durationTo,
                                              @RequestParam (value = "pageNo", defaultValue = "0") int pageNo){
