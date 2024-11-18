@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { StyledHome, StyledMarqueeText, StyledScreenings } from './Home.styled';
+import {
+  ButtonContainerHome,
+  StyledHome,
+  StyledMarqueeText,
+  StyledScreenings,
+} from './Home.styled';
 import DateButtonSelector from '../../components/ui/DataSelector/DateButtonSelector';
 import MovieScreeningCard from '../../components/ui/MovieScreeningCard/MovieScreeningCard';
 import screeningServiceAxios from '../../components/api/screening.service.axios';
@@ -8,6 +13,9 @@ import { Details } from '../../components/ui/MovieScreeningCard/MovieScreeningCa
 import Dropdown from '../../components/shared/dropdown/Dropdown';
 import genreServiceAxios from '../../components/api/genre.service.axios';
 import { Genre } from '../../types/Genre';
+import Button from '../../components/shared/button/Button';
+import { ButtonContainer } from '../../components/ui/MovieCard/MovieCard.styled';
+import { useNavigate } from 'react-router-dom';
 
 const formatDate = (date: Date) => {
   return date.toISOString().split('T')[0];
@@ -21,6 +29,8 @@ const Home = () => {
   const [selectedGenre, setSelectedGenre] = useState<number>(0);
   const [showMarquee, setShowMarquee] = useState(true);
   const [noScreenings, setNoScreenings] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleDateSelect = (date: string) => {
     setSelectedDate(date);
@@ -74,6 +84,10 @@ const Home = () => {
     getGenres();
   }, [selectedDate]);
 
+  const goToAdd = () => {
+    navigate('/screenings/add');
+  };
+
   return (
     <>
       {showMarquee && (
@@ -91,13 +105,21 @@ const Home = () => {
         </>
         <>
           <StyledScreenings>
-            <Details>Screenings for date: {selectedDate}</Details>
+            <ButtonContainerHome>
+              <Button
+                text="Add new screening"
+                color="#00bcf7"
+                onClick={() => goToAdd()}
+              />
+            </ButtonContainerHome>
             <Dropdown
               label="Select Genre"
               options={genres}
               selectedValue={selectedGenre}
               onChange={handleGenreChange}
             />
+            <Details>Screenings for date: {selectedDate}</Details>
+
             {noScreenings ? (
               <Details>
                 No screenings available for the selected criteria.
