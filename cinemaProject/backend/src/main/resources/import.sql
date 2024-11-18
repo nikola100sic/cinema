@@ -4,11 +4,23 @@ INSERT INTO genres (id, name) VALUES (3, 'Crime');
 INSERT INTO genres (id, name) VALUES (4, 'Drama');
 INSERT INTO genres (id, name) VALUES (5, 'Science fiction');
 INSERT INTO genres (id, name) VALUES (6, 'Romance');
+INSERT INTO genres (id, name) VALUES (7, 'Action');
+INSERT INTO genres (id, name) VALUES (8, 'Fantasy');
+INSERT INTO genres (id, name) VALUES (9, 'Mystery');
+INSERT INTO genres (id, name) VALUES (10, 'Thriller');
+INSERT INTO genres (id, name) VALUES (11, 'Western romance');
+INSERT INTO genres (id, name) VALUES (12, 'Adventure');
+
+
 
 INSERT INTO movies (name, image_url,duration,rating) VALUES ('The Godfather', 'https://m.media-amazon.com/images/M/MV5BYTJkNGQyZDgtZDQ0NC00MDM0LWEzZWQtYzUzZDEwMDljZWNjXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg',140,5);
 INSERT INTO movies (name, image_url,duration,rating) VALUES ('Meet the Fockers', 'https://images.moviesanywhere.com/62b942d4c4f4edec0252a503c60b2dcd/7f622a83-bf28-488f-9dd3-ba3134b92058.jpg',162, 4);
 INSERT INTO movies (name, image_url,duration,rating) VALUES ('Joker', 'https://m.media-amazon.com/images/M/MV5BNzY3OWQ5NDktNWQ2OC00ZjdlLThkMmItMDhhNDk3NTFiZGU4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg',178,5);
 INSERT INTO movies (name, image_url,duration,rating) VALUES ('Titanic', 'https://m.media-amazon.com/images/M/MV5BYzYyN2FiZmUtYWYzMy00MzViLWJkZTMtOGY1ZjgzNWMwN2YxXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg',150, 4);
+INSERT INTO movies (name, image_url,duration,rating) VALUES ('About My Father', 'https://m.media-amazon.com/images/M/MV5BZTQ3NDZhMjUtNGNhMS00ODhjLTk2OTktOWE1Y2VjNTRmNWUxXkEyXkFqcGc@._V1_.jpg',153, 4);
+INSERT INTO movies (name, image_url,duration,rating) VALUES ('Taxi Driver', 'https://m.media-amazon.com/images/M/MV5BZDNhMGYwM2UtMTdlZS00MGQ1LWI2YzAtODY5YWI1MjYyNzRmXkEyXkFqcGc@._V1_.jpg',174, 5);
+INSERT INTO movies (name, image_url,duration,rating) VALUES ('Gladiator', 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS_kenAC7V_GCDzYEeAwSw_dCFPa7ahAM_YgaHpPNpbzR_Z8tnC',208, 5);
+INSERT INTO movies (name, image_url,duration,rating) VALUES ('Avengers', 'https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p8815512_p_v8_ax.jpg',164, 5);
 
 INSERT INTO `cinema`.`user` (`id`, `password`, `username`) VALUES ('1', '111', 'dzoni');
 
@@ -22,6 +34,22 @@ INSERT INTO movie_genre (movie_id, genre_id) VALUES (3,3);
 INSERT INTO movie_genre (movie_id, genre_id) VALUES (3,4);
 INSERT INTO movie_genre (movie_id, genre_id) VALUES (4,4);
 INSERT INTO movie_genre (movie_id, genre_id) VALUES (4,6);
+INSERT INTO movie_genre (movie_id, genre_id) VALUES (5,1);
+INSERT INTO movie_genre (movie_id, genre_id) VALUES (5,4);
+INSERT INTO movie_genre (movie_id, genre_id) VALUES (5,6);
+INSERT INTO movie_genre (movie_id, genre_id) VALUES (6,4);
+INSERT INTO movie_genre (movie_id, genre_id) VALUES (6,7);
+INSERT INTO movie_genre (movie_id, genre_id) VALUES (6,10);
+INSERT INTO movie_genre (movie_id, genre_id) VALUES (7,4);
+INSERT INTO movie_genre (movie_id, genre_id) VALUES (7,7);
+INSERT INTO movie_genre (movie_id, genre_id) VALUES (7,12);
+INSERT INTO movie_genre (movie_id, genre_id) VALUES (8,7);
+INSERT INTO movie_genre (movie_id, genre_id) VALUES (8,5);
+INSERT INTO movie_genre (movie_id, genre_id) VALUES (8,12);
+
+
+
+
 
 INSERT INTO halls (`capacity`, `id`, `hall_number` ,`name`) VALUES ('20', '1', 1,'Gold ');
 INSERT INTO halls (`capacity`, `id`, `hall_number`,`name`) VALUES ('15', '2', 2,'Silver ');
@@ -48,34 +76,34 @@ INSERT INTO `seats` ( `seat_column`, `hall_id`,`seat_row`, `id`) VALUES ('5', '1
 INSERT INTO `seats` ( `seat_column`, `hall_id`,`seat_row`, `id`) VALUES ('5', '1','3', '19');
 INSERT INTO `seats` ( `seat_column`, `hall_id`,`seat_row`, `id`) VALUES ('5', '1','4', '20');
 
-INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-12', '15:30:00', '1', '1', '1');
-INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-12', '18:30:00', '1', '2', '1');
-INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-12' ,'20:30:00', '1', '3', '1');
-INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-12' ,'22:00:00', '1', '4', '2');
-INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-12' ,'17:30:00', '1', '5', '2');
-INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-13' ,'15:30:00', '1', '6', '3');
-INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-13' ,'20:00:00', '1', '7', '3');
-INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-13', '16:30:00', '1', '8', '3');
-INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-13', '18:30:00', '1', '9', '3');
-INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-13' ,'21:30:00', '1', '10', '4');
-INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-14' ,'15:30:00', '1', '11', '1');
-INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-14' ,'17:30:00', '1', '12', '3');
-INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-14' ,'20:15:00', '1', '13', '4');
-INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-14' ,'20:00:00', '1', '14', '3');
-INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-15' ,'13:30:00', '1', '15', '2');
-INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-15' ,'22:30:00', '1', '16', '3');
-INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-15' ,'21:00:00', '1', '17', '3');
-INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-15', '15:30:00', '1', '18', '3');
-INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-16', '17:30:00', '1', '19', '3');
-INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-16' ,'22:30:00', '1', '20', '4');
-INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-16' ,'11:30:00', '1', '21', '1');
-INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-17' ,'13:30:00', '1', '22', '2');
-INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-17' ,'22:30:00', '1', '23', '4');
-INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-17' ,'20:00:00', '1', '24', '3');
-INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-18' ,'16:30:00', '1', '25', '4');
-INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-18' ,'18:30:00', '1', '26', '1');
-INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-18' ,'21:30:00', '1', '27', '4');
-INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-18' ,'23:00:00', '1', '28', '2');
+INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-17', '15:30:00', '1', '1', '1');
+INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-17', '18:30:00', '1', '2', '1');
+INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-17' ,'20:30:00', '1', '3', '1');
+INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-18' ,'22:00:00', '1', '4', '2');
+INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-18' ,'17:30:00', '1', '5', '2');
+INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-18' ,'15:30:00', '1', '6', '3');
+INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-19' ,'20:00:00', '1', '7', '3');
+INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-19', '16:30:00', '1', '8', '3');
+INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-19', '18:30:00', '1', '9', '3');
+INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-19' ,'21:30:00', '1', '10', '4');
+INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-20' ,'15:30:00', '1', '11', '1');
+INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-20' ,'17:30:00', '1', '12', '3');
+INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-20' ,'20:15:00', '1', '13', '4');
+INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-20' ,'20:00:00', '1', '14', '3');
+INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-21' ,'13:30:00', '1', '15', '2');
+INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-21' ,'22:30:00', '1', '16', '3');
+INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-21' ,'21:00:00', '1', '17', '3');
+INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-21', '15:30:00', '1', '18', '3');
+INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-22', '17:30:00', '1', '19', '3');
+INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-22' ,'22:30:00', '1', '20', '4');
+INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-22' ,'11:30:00', '1', '21', '1');
+INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-22' ,'13:30:00', '1', '22', '2');
+INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-22' ,'22:30:00', '1', '23', '4');
+INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-23' ,'20:00:00', '1', '24', '3');
+INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-23' ,'16:30:00', '1', '25', '4');
+INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-23' ,'18:30:00', '1', '26', '1');
+INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-23' ,'21:30:00', '1', '27', '4');
+INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-24' ,'23:00:00', '1', '28', '2');
 
 INSERT INTO `reservation` (`is_active`, `id`, `screening_id`, `seat_id`, `user_id`) VALUES (1, '1', '1', '1', '1');
 INSERT INTO `reservation` (`is_active`, `id`, `screening_id`, `seat_id`, `user_id`) VALUES (1, '2', '1', '7', '1');
