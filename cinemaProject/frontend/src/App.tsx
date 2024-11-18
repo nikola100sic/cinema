@@ -11,6 +11,7 @@ import GenrePage from './pages/genres/GenrePage';
 import GenreAddPage from './pages/genres/GenreAddPage';
 import GenreEditPage from './pages/genres/GenreEditPage';
 import Home from './pages/home/Home';
+import ScreeningAddPage from './pages/screenings/ScreeningAddPage';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="/movies" element={<MoviePage />} />
             <Route path="/movies/add" element={<MovieAddPage />} />
             <Route path="/movies/edit/:id" element={<MovieEditPage />} />
+            <Route path="/screenings/add" element={<ScreeningAddPage />} />
           </Routes>
         </Layout>
       </Router>
