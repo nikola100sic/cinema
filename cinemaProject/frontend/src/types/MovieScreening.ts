@@ -1,12 +1,16 @@
 import { Genre } from './Genre';
-import { Screening } from './Screening';
+import { Hall } from './Hall';
+import { Movie } from './Movie';
+
+export interface Screening {
+  id: number;
+  screening_time: string;
+  screening_date: string;
+  hallDto: Hall;
+}
 
 export interface MovieScreening {
-  name: string;
   id: number;
-  duration: number;
-  genres: Genre[];
-  imageUrl: string;
-  rating: number;
+  movieDTO: Movie;
   screenings: Screening[];
 }
