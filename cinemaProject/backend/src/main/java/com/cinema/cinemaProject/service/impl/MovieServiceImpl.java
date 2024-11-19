@@ -11,9 +11,7 @@ import com.cinema.cinemaProject.repository.GenreRepository;
 import com.cinema.cinemaProject.repository.MovieRepository;
 import com.cinema.cinemaProject.repository.ScreeningRepository;
 import com.cinema.cinemaProject.service.MovieService;
-import com.cinema.cinemaProject.web.dto.GenreDTO;
-import com.cinema.cinemaProject.web.dto.MovieWithScreeningsDTO;
-import com.cinema.cinemaProject.web.dto.ScreeningDTO;
+import com.cinema.cinemaProject.web.dto.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -37,6 +35,11 @@ public class MovieServiceImpl implements MovieService {
     public Movie findOne(Long movieId) {
         return movieRepository.findById(movieId)
                 .orElseThrow(()-> new MovieNotFoundException(movieId));
+    }
+
+    @Override
+    public List<Movie> getAll() {
+        return movieRepository.findAll();
     }
 
     @Override
@@ -98,18 +101,21 @@ public class MovieServiceImpl implements MovieService {
         if (screenings.isEmpty()) {
             return null;
         }
-
         List<ScreeningDTO> screeningDTOs = createScreeningDTOs(screenings);
 
         MovieWithScreeningsDTO movieScreeningsDTO = new MovieWithScreeningsDTO();
         movieScreeningsDTO.setId(movie.getId());
-        movieScreeningsDTO.setName(movie.getName());
-        movieScreeningsDTO.setDuration(movie.getDuration());
-        movieScreeningsDTO.setGenres(createGenreDTOs(movie.getGenres()));
         movieScreeningsDTO.setScreenings(screeningDTOs);
-        movieScreeningsDTO.setRating(movie.getRating());
-        movieScreeningsDTO.setImageUrl(movie.getImageUrl());
 
+        MovieDTO movieDTO = new MovieDTO();
+        movieDTO.setId(movie.getId());
+        movieDTO.setName(movie.getName());
+        movieDTO.setDuration(movie.getDuration());
+        movieDTO.setImageUrl(movie.getImageUrl());
+        movieDTO.setGenres(createGenreDTOs(movie.getGenres()));
+        movieDTO.setRating(movie.getRating());
+
+        movieScreeningsDTO.setMovieDTO(movieDTO);
         return movieScreeningsDTO;
     }
 
@@ -118,10 +124,16 @@ public class MovieServiceImpl implements MovieService {
                 .map(screening -> {
                     ScreeningDTO screeningDTO = new ScreeningDTO();
                     screeningDTO.setId(screening.getId());
-                    screeningDTO.setScreeningDate(screening.getScreening_date());
-                    screeningDTO.setScreeningTime(screening.getScreening_time());
-                    screeningDTO.setHallId(screening.getHall().getId());
-                    screeningDTO.setHallNumber(screening.getHall().getHallNumber());
+                    screeningDTO.setScreening_date(screening.getScreening_date());
+                    screeningDTO.setScreening_time(screening.getScreening_time());
+
+                    HallDTO hallDTO = new HallDTO();
+                    hallDTO.setId(screening.getHall().getId());
+                    hallDTO.setHallNumber(screening.getHall().getHallNumber());
+                    hallDTO.setName(screening.getHall().getName());
+                    hallDTO.setCapacity(screening.getHall().getCapacity());
+
+                    screeningDTO.setHallDto(hallDTO);
                     return screeningDTO;
                 })
                 .collect(Collectors.toList());
