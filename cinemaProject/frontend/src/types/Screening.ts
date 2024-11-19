@@ -1,9 +1,8 @@
-import { Genre } from './Genre';
+import { Hall } from './Hall';
 
 export interface Screening {
   id: number;
-  screeningTime: string;
-  screeningDate: string;
-  hallId: number;
-  hallNumber: number;
+  screening_time: string;
+  screening_date: string;
+  hallDto: Hall;
 }
