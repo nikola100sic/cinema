@@ -14,11 +14,13 @@ import Dropdown from '../../components/shared/dropdown/Dropdown';
 import genreServiceAxios from '../../components/api/genre.service.axios';
 import { Genre } from '../../types/Genre';
 import Button from '../../components/shared/button/Button';
-import { ButtonContainer } from '../../components/ui/MovieCard/MovieCard.styled';
 import { useNavigate } from 'react-router-dom';
 
 const formatDate = (date: Date) => {
-  return date.toISOString().split('T')[0];
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
 };
 
 const Home = () => {
@@ -82,7 +84,7 @@ const Home = () => {
   useEffect(() => {
     getScreenings(selectedDate, selectedGenre);
     getGenres();
-  }, [selectedDate]);
+  }, [selectedDate, selectedGenre]);
 
   const goToAdd = () => {
     navigate('/screenings/add');
@@ -100,45 +102,43 @@ const Home = () => {
         </StyledMarqueeText>
       )}
       <StyledHome>
-        <>
-          <DateButtonSelector onDateSelect={handleDateSelect} />
-        </>
-        <>
-          <StyledScreenings>
-            <ButtonContainerHome>
-              <Button
-                text="Add new screening"
-                color="#00bcf7"
-                onClick={() => goToAdd()}
-              />
-            </ButtonContainerHome>
-            <Dropdown
-              label="Select Genre"
-              options={genres}
-              selectedValue={selectedGenre}
-              onChange={handleGenreChange}
+        <DateButtonSelector
+          onDateSelect={handleDateSelect}
+          selectedDate={selectedDate}
+        />
+        <StyledScreenings>
+          <ButtonContainerHome>
+            <Button
+              text="Add new screening"
+              color="#00bcf7"
+              onClick={goToAdd}
             />
-            <Details>Screenings for date: {selectedDate}</Details>
+          </ButtonContainerHome>
+          <Dropdown
+            label="Select Genre"
+            options={genres}
+            selectedValue={selectedGenre}
+            onChange={handleGenreChange}
+          />
+          <Details>
+            {selectedDate === todayDate
+              ? 'Screening for today'
+              : 'Screening for: ' + selectedDate}
+          </Details>
 
-            {noScreenings ? (
-              <Details>
-                No screenings available for the selected criteria.
-              </Details>
-            ) : (
-              screenings.map((movieScreening) => (
-                <MovieScreeningCard
-                  key={movieScreening.id}
-                  name={movieScreening.name}
-                  duration={movieScreening.duration}
-                  genres={movieScreening.genres}
-                  imageUrl={movieScreening.imageUrl}
-                  rating={movieScreening.rating}
-                  screenings={movieScreening.screenings}
-                />
-              ))
-            )}
-          </StyledScreenings>
-        </>
+          {noScreenings ? (
+            <Details>
+              No screenings available for the selected criteria.
+            </Details>
+          ) : (
+            screenings.map((movieScreening) => (
+              <MovieScreeningCard
+                key={movieScreening.id}
+                data={movieScreening}
+              />
+            ))
+          )}
+        </StyledScreenings>
       </StyledHome>
     </>
   );
