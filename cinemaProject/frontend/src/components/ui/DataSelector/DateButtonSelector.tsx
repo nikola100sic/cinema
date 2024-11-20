@@ -1,12 +1,15 @@
-import React from 'react';
 import Button from '../../shared/button/Button';
 import { DateSelector } from './DateSelector.styled';
 
 interface DateButtonSelectorProps {
   onDateSelect: (date: string) => void;
+  selectedDate: string;
 }
 
-const DateButtonSelector = ({ onDateSelect }: DateButtonSelectorProps) => {
+const DateButtonSelector = ({
+  onDateSelect,
+  selectedDate,
+}: DateButtonSelectorProps) => {
   const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
   const generateDates = () => {
@@ -31,9 +34,7 @@ const DateButtonSelector = ({ onDateSelect }: DateButtonSelectorProps) => {
   const dates = generateDates();
 
   const handleClick = (date: string) => {
-    if (onDateSelect) {
-      onDateSelect(date);
-    }
+    onDateSelect(date);
   };
 
   return (
@@ -42,7 +43,7 @@ const DateButtonSelector = ({ onDateSelect }: DateButtonSelectorProps) => {
         <Button
           text={display}
           key={value}
-          color="#ffffff4d"
+          color={selectedDate === value ? '#005eff' : '#ffffff4d'}
           textColor="white"
           onClick={() => handleClick(value)}
         />
