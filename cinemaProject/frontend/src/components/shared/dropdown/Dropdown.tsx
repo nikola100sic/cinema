@@ -4,20 +4,31 @@ import { DropdownStyle, Select } from './Dropdown.styled';
 
 interface Option {
   id: number;
-  name: String;
+  name: string;
 }
 
 interface DropdownProps {
-  label: String;
+  label: string;
   options: Option[];
   selectedValue: number;
   onChange: (value: number) => void;
+  color?: string;
+  textColor?: string;
+  type?: 'big' | 'small';
 }
 
-const Dropdown = ({ label, options, onChange }: DropdownProps) => {
+const Dropdown = ({
+  label,
+  options,
+  onChange,
+  color = '#1a72ac',
+  textColor = 'white',
+  type = 'small',
+}: DropdownProps) => {
   const [selectedValue, setSelectedValue] = useState<any>();
+
   return (
-    <DropdownStyle>
+    <DropdownStyle type={type}>
       <FormLabel htmlFor={`${label}select`}></FormLabel>
       <Select
         id={`${label}select`}
@@ -26,6 +37,9 @@ const Dropdown = ({ label, options, onChange }: DropdownProps) => {
           onChange(Number(e.target.value));
           setSelectedValue(e.target.value);
         }}
+        $color={color}
+        $textColor={textColor}
+        $type={type}
       >
         <option value={0}>Select option</option>
         {options.map((option) => (
