@@ -4,6 +4,7 @@ import com.cinema.cinemaProject.exception.genres.GenreNotFoundException;
 import com.cinema.cinemaProject.exception.genres.GenresListEmpty;
 import com.cinema.cinemaProject.exception.movies.MovieNotFoundException;
 import com.cinema.cinemaProject.exception.movies.MoviesListEmpty;
+import com.cinema.cinemaProject.exception.screenings.HallOccupiedException;
 import com.cinema.cinemaProject.exception.screenings.ScreeningNotFoundException;
 import com.cinema.cinemaProject.exception.screenings.ScreeningsNotFoundException;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -43,6 +44,11 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(ScreeningNotFoundException.class)
     public ResponseEntity<String>handleEntityNotFoundException (ScreeningNotFoundException ex){
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(HallOccupiedException.class)
+    public ResponseEntity<String>handleEntityHallOccupiedException (HallOccupiedException ex){
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(value = DataIntegrityViolationException.class)
