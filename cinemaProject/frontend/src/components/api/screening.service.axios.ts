@@ -1,3 +1,5 @@
+import { Screening } from '../../types/Screening';
+import { ScreeningAdd } from '../../types/ScreeningAdd';
 import { CinemaAxios } from './axios';
 
 const getScreenings = (date?: string, genreId?: number) => {
@@ -6,6 +8,11 @@ const getScreenings = (date?: string, genreId?: number) => {
   });
 };
 
+const addScreening = (screening: ScreeningAdd) => {
+  return CinemaAxios.post(`/screenings`, screening);
+};
+
 export default {
   getScreenings,
+  addScreening,
 };
