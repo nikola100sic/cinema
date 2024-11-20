@@ -96,3 +96,10 @@ export const MovieInfoPage = styled.div`
   display: flex;
   flex-direction: column;
 `;
+
+export const AddScreeningContainer = styled(AddGenrePageStyled)`
+  flex-direction: column;
+`;
+export const ScreeningFormTitle = styled(GenreFormTitle)``;
+
+export const ScreeningFormInput = styled(GenreFormInput)``;
