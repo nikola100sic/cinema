@@ -2,10 +2,14 @@ import { CinemaAxios } from './axios';
 import { Movie } from '../../types/Movie';
 
 const getMovies = (pageNo: number) => {
-  return CinemaAxios.get('/movies', {
+  return CinemaAxios.get('/movies/search', {
     params: { pageNo },
   });
 };
+const getAllMovies = () => {
+  return CinemaAxios.get('/movies');
+};
+
 const getMovie = (id: number) => {
   return CinemaAxios.get(`/movies/${id}`);
 };
@@ -25,6 +29,7 @@ const deleteMovie = (id: number) => {
 export default {
   getMovie,
   getMovies,
+  getAllMovies,
   addMovie,
   updateMovie,
   deleteMovie,
