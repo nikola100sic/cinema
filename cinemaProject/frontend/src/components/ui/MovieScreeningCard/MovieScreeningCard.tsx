@@ -10,35 +10,24 @@ import {
 } from './MovieScreeningCard.styled';
 import Button from '../../shared/button/Button';
 import { useNavigate } from 'react-router-dom';
-import { Genre } from '../../../types/Genre';
-import { Screening } from '../../../types/Screening';
+import { MovieScreening } from '../../../types/MovieScreening';
 
 interface MovieScreeningCardProps {
-  name: string;
-  genres: Genre[];
-  duration: number;
-  screenings: Screening[];
-  imageUrl: string;
-  rating: number;
+  data: MovieScreening;
 }
 
-const MovieScreeningCard = ({
-  name,
-  genres,
-  duration,
-  screenings,
-  imageUrl,
-  rating,
-}: MovieScreeningCardProps) => {
+const MovieScreeningCard = ({ data }: MovieScreeningCardProps) => {
+  const { movieDTO, screenings } = data;
   const navigate = useNavigate();
 
   const handleTimeClick = (id: number) => {
     navigate(`/screening/${id}`);
   };
 
-  const renderStars = (rating: number) => {
-    const filledStars = '★'.repeat(Math.floor(rating));
-    const emptyStars = '☆'.repeat(5 - Math.floor(rating));
+  const renderStars = (rating: number | undefined) => {
+    const safeRating = rating ?? 0;
+    const filledStars = '★'.repeat(Math.floor(safeRating));
+    const emptyStars = '☆'.repeat(5 - Math.floor(safeRating));
     return (
       <span style={{ color: 'rgb(255 236 0)', fontSize: '24px' }}>
         {filledStars}
@@ -50,24 +39,31 @@ const MovieScreeningCard = ({
   return (
     <MovieScreeningCardStyled>
       <ImageStyled>
-        <img src={imageUrl} alt={`${name} poster`} />
+        <img src={movieDTO.imageUrl} alt={`${movieDTO.name} poster`} />
       </ImageStyled>
       <MovieInfoStyled>
-        <MovieTitle>Name: {name}</MovieTitle>
-        <Details>Duration: {duration} min</Details>
-        Genres: {genres.map((genre) => genre.name).join(', ')}
+        <MovieTitle>Name: {movieDTO.name}</MovieTitle>
+        <Details>Duration: {movieDTO.duration} min</Details>
+        Genres: {movieDTO.genres.map((genre) => genre.name).join(', ')}
       </MovieInfoStyled>
       <ShowtimesAndRating>
-        <p>Rating: {renderStars(rating)}</p>
+        <p>Rating: {renderStars(movieDTO.rating)}</p>
         <Time>
-          {screenings.map((screening) => (
-            <Button
-              key={screening.id}
-              text={`Hall: ${screening.hallNumber}| ${screening.screeningTime.slice(0, 5)}`}
-              onClick={() => handleTimeClick(screening.id)}
-              color="#ffffff8c"
-            />
-          ))}
+          {screenings && screenings.length > 0 ? (
+            screenings.map((screening) => (
+              <Button
+                key={screening.id}
+                text={`Hall: ${screening.hallDto.hallNumber} | ${screening.screening_time.slice(
+                  0,
+                  5,
+                )}`}
+                onClick={() => handleTimeClick(screening.id)}
+                color="#ffffff8c"
+              />
+            ))
+          ) : (
+            <p>No screenings available</p>
+          )}
         </Time>
       </ShowtimesAndRating>
     </MovieScreeningCardStyled>
