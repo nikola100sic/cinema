@@ -99,7 +99,12 @@ const ScreeningAddPage = () => {
       })
       .catch((error) => {
         console.log(error);
-        toast.error('Error adding screening');
+
+        if (error.response && error.response.status === 400) {
+          toast.error(error.response.data);
+        } else {
+          toast.error('An unexpected error occurred');
+        }
       });
   };
 
