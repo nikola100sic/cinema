@@ -5,7 +5,7 @@ export const StyledButton = styled.button<{
   $color?: string;
   $textColor?: string;
 }>`
-  width: 100px;
+  width: 110px;
   height: 40px;
   background: ${(props) =>
     props.$color
