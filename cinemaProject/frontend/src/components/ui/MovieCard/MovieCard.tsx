@@ -1,13 +1,13 @@
 import React from 'react';
 import { Genre } from '../../../types/Genre';
 import {
-  ButtonContainer,
-  Label,
   MovieCardStyled,
   MovieImageStyled,
   MovieInfo,
 } from './MovieCard.styled';
 import Button from '../../shared/button/Button';
+import { ButtonContainer } from '../GenreCard/GenreCard.styled';
+import { Label } from '../../shared/forms/Forms.styled';
 interface MovieCardProps {
   id: number;
   name: string;
