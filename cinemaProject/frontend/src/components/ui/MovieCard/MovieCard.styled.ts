@@ -34,10 +34,3 @@ export const MovieImageStyled = styled.div`
     border-radius: 8px;
   }
 `;
-
-export const ButtonContainer = styled.div`
-  display: flex;
-  gap: 58px;
-  justify-content: center;
-  margin-top: 20px;
-`;
