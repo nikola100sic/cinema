@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { StyledButton } from '../button/Button.styled';
 
 export const AddGenrePageStyled = styled.div`
   display: flex;
@@ -79,6 +80,10 @@ export const CheckboxInput = styled.input`
   transform: scale(1.4);
 `;
 
+export const Label = styled.span`
+  font-size: 15px;
+`;
+
 export const MoviePicture = styled.div`
   display: flex;
   justify-content: center;
@@ -96,6 +101,25 @@ export const MovieInfoPage = styled.div`
   display: flex;
   flex-direction: column;
 `;
+export const AddButtonContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 12px;
+`;
+
+export const AddButton = styled(StyledButton)`
+  background-color: #00bcf7;
+  border: 1px solid #4a393952;
+  border-radius: 10px;
+  width: 129px;
+`;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  gap: 58px;
+  justify-content: center;
+  margin-top: 20px;
+`;
 
 export const AddScreeningContainer = styled(AddGenrePageStyled)`
   flex-direction: column;
@@ -103,3 +127,11 @@ export const AddScreeningContainer = styled(AddGenrePageStyled)`
 export const ScreeningFormTitle = styled(GenreFormTitle)``;
 
 export const ScreeningFormInput = styled(GenreFormInput)``;
+
+export const AuthFormContainer = styled(AddGenrePageStyled)`
+  flex-direction: column;
+`;
+
+export const AuthFormTitle = styled(GenreFormTitle)``;
+
+export const AuthFormInput = styled(GenreFormInput)``;
