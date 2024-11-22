@@ -3,15 +3,15 @@ import MovieCard from '../../components/ui/MovieCard/MovieCard';
 import { Movie } from '../../types/Movie';
 import movieServiceAxios from '../../components/api/movie.service.axios';
 import Loader from '../../components/shared/loader/Loader';
-import {
-  AddButton,
-  AddButtonContainer,
-  MovieCardContainer,
-} from './MoviePage.styled';
+import { MovieCardContainer } from './MoviePage.styled';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Button from '../../components/shared/button/Button';
 import Pagination from '../../components/shared/pagination/Pagination';
+import {
+  AddButton,
+  AddButtonContainer,
+} from '../../components/shared/forms/Forms.styled';
 
 const MoviePage = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
