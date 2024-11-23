@@ -12,6 +12,10 @@ import GenreAddPage from './pages/genres/GenreAddPage';
 import GenreEditPage from './pages/genres/GenreEditPage';
 import Home from './pages/home/Home';
 import ScreeningAddPage from './pages/screenings/ScreeningAddPage';
+import Contact from './pages/contact/ContactPage';
+import ContactPage from './pages/contact/ContactPage';
+import LoginPage from './pages/auth/LoginPage';
+import RegistrationPage from './pages/auth/RegistrationPage';
 
 function App() {
   return (
@@ -28,6 +32,9 @@ function App() {
             <Route path="/movies/add" element={<MovieAddPage />} />
             <Route path="/movies/edit/:id" element={<MovieEditPage />} />
             <Route path="/screenings/add" element={<ScreeningAddPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/registration" element={<RegistrationPage />} />
           </Routes>
         </Layout>
       </Router>

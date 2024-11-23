@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {
+  ButtonContainer,
   CheckBoxGroup,
   CheckboxInput,
   CheckBoxItem,
@@ -12,7 +13,6 @@ import {
 } from '../../components/shared/forms/Forms.styled';
 import { Genre } from '../../types/Genre';
 import genreServiceAxios from '../../components/api/genre.service.axios';
-import { ButtonContainer } from '../../components/ui/MovieCard/MovieCard.styled';
 import Button from '../../components/shared/button/Button';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';

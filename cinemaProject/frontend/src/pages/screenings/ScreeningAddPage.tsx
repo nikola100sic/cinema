@@ -5,12 +5,12 @@ import { Hall } from '../../types/Hall';
 import hallServiceAxios from '../../components/api/hall.service.axios';
 import {
   AddScreeningContainer,
+  ButtonContainer,
   FormLabel,
   ScreeningFormInput,
   ScreeningFormTitle,
 } from '../../components/shared/forms/Forms.styled';
 import Dropdown from '../../components/shared/dropdown/Dropdown';
-import { ButtonContainer } from '../../components/ui/MovieCard/MovieCard.styled';
 import Button from '../../components/shared/button/Button';
 import { toast } from 'react-toastify';
 import screeningServiceAxios from '../../components/api/screening.service.axios';

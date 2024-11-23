@@ -4,6 +4,7 @@ import { Movie } from '../../types/Movie';
 import { Genre } from '../../types/Genre';
 import movieServiceAxios from '../../components/api/movie.service.axios';
 import {
+  ButtonContainer,
   CheckBoxGroup,
   CheckboxInput,
   CheckBoxItem,
@@ -14,7 +15,6 @@ import {
   MoviePageStyled,
   MoviePicture,
 } from '../../components/shared/forms/Forms.styled';
-import { ButtonContainer } from '../../components/ui/MovieCard/MovieCard.styled';
 import Button from '../../components/shared/button/Button';
 import genreServiceAxios from '../../components/api/genre.service.axios';
 import { toast } from 'react-toastify';
