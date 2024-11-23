@@ -22,8 +22,8 @@ INSERT INTO movies (name, image_url,duration,rating) VALUES ('Taxi Driver', 'htt
 INSERT INTO movies (name, image_url,duration,rating) VALUES ('Gladiator', 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS_kenAC7V_GCDzYEeAwSw_dCFPa7ahAM_YgaHpPNpbzR_Z8tnC',208, 5);
 INSERT INTO movies (name, image_url,duration,rating) VALUES ('Avengers', 'https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p8815512_p_v8_ax.jpg',164, 5);
 
-INSERT INTO `cinema`.`user` (`id`, `password`, `username`) VALUES ('1', '111', 'dzoni');
-
+INSERT INTO `cinema`.`user` (`id`, `name`,`surname`,`e_mail`,`password`, `username`, `user_role`) VALUES ('1','Nikola','Stosic','nikola@nikola' ,'111', 'dzoni', 'ADMIN');
+INSERT INTO `cinema`.`user` (`id`, `name`,`surname`,`e_mail`,`password`, `username`, `user_role`) VALUES ('2','Petar','Stosic','petar@petar' ,'111', 'rope', 'USER');
 
 
 INSERT INTO movie_genre (movie_id, genre_id) VALUES (1,3);
