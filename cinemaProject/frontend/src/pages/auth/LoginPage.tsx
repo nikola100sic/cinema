@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   AuthFormContainer,
   AuthFormInput,
@@ -7,18 +7,79 @@ import {
   FormLabel,
 } from '../../components/shared/forms/Forms.styled';
 import Button from '../../components/shared/button/Button';
+import { User } from '../../types/User';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { AuthAxios } from '../../components/api/axios';
 
 const LoginPage = () => {
+  const [user, setUser] = useState<User>({
+    username: '',
+    password: '',
+  });
+
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from || '/home';
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setUser((prevUser) => ({
+      ...prevUser,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    if (user.username === '' || user.password === '') {
+      toast.warn('Please fill in all fields.');
+
+      return;
+    }
+    console.log(user);
+    try {
+      const resp = await AuthAxios.post('/login', user);
+      window.localStorage.setItem('jwt', resp.data);
+      window.location.replace('/home');
+      // navigate(from);
+    } catch (e) {
+      console.log(e);
+      toast.warn('Error.');
+    }
+  };
+
   return (
     <AuthFormContainer>
       <AuthFormTitle>Login</AuthFormTitle>
       <FormLabel>Username: </FormLabel>
-      <AuthFormInput></AuthFormInput>
-      <FormLabel>Password: </FormLabel>
-      <AuthFormInput></AuthFormInput>
-      <ButtonContainer>
-        <Button text="Login" type="submit" />
-      </ButtonContainer>
+      <form onSubmit={handleSubmit}>
+        <AuthFormInput
+          type="text"
+          placeholder="Enter your username"
+          name="username"
+          value={String(user.username)}
+          onChange={handleChange}
+        />
+
+        <FormLabel>Password: </FormLabel>
+        <AuthFormInput
+          type="password"
+          placeholder="Enter your password"
+          name="password"
+          value={String(user.password)}
+          onChange={handleChange}
+        />
+        <ButtonContainer>
+          <Button text="Login" type="submit" />
+          <Button
+            text="Create acount"
+            type="submit"
+            onClick={() => navigate('/registration')}
+          />
+        </ButtonContainer>
+      </form>
     </AuthFormContainer>
   );
 };
