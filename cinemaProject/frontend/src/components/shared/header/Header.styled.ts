@@ -29,6 +29,12 @@ export const StyledLinksWrapper = styled.div`
 
 export const StyledRegistrationLoginWrapper = styled.div`
   display: flex;
-  gap: 21px;
+  gap: 13px;
   flex-direction: column;
+`;
+
+export const StyledLogoutWrapper = styled.div`
+  display: flex;
+  align-items: 'center';
+  gap: 5px;
 `;
