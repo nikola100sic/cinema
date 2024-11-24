@@ -12,12 +12,15 @@ import {
   AddButton,
   AddButtonContainer,
 } from '../../components/shared/forms/Forms.styled';
+import useAuth from '../../utils/authUtils';
 
 const MoviePage = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [totalPages, setTotalPages] = useState<number>(0);
+
+  const { isAdmin } = useAuth();
 
   const navigate = useNavigate();
 
@@ -92,11 +95,14 @@ const MoviePage = () => {
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };
+
   return (
     <>
-      <AddButtonContainer>
-        <AddButton onClick={() => goToAdd()}>Add new movie</AddButton>
-      </AddButtonContainer>
+      {isAdmin && (
+        <AddButtonContainer>
+          <AddButton onClick={() => goToAdd()}>Add new movie</AddButton>
+        </AddButtonContainer>
+      )}
       {loading ? (
         <Loader loading={loading} />
       ) : (
