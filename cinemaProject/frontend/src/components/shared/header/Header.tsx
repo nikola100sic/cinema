@@ -3,12 +3,14 @@ import {
   StyledHeader,
   StyledLinks,
   StyledLinksWrapper,
+  StyledLogoutWrapper,
   StyledRegistrationLoginWrapper,
 } from './Header.styled';
 import Button from '../button/Button';
 import { FaUser, FaUserPlus } from 'react-icons/fa';
 import { jwtDecode } from 'jwt-decode';
 import useAuth from '../../../utils/authUtils';
+import { FaUserLarge } from 'react-icons/fa6';
 
 interface HeaderProps {
   brandName: string;
@@ -35,7 +37,6 @@ const Header = ({ brandName, navItems }: HeaderProps) => {
         const currentTime = Date.now() / 1000;
         if (decoded.exp < currentTime) {
           handleLogout();
-          window.location.reload();
         }
       } catch (error) {
         console.error('Invalid token', error);
@@ -59,7 +60,10 @@ const Header = ({ brandName, navItems }: HeaderProps) => {
       <StyledRegistrationLoginWrapper>
         {token ? (
           <>
-            <>{'Hi, ' + username}</>
+            <StyledLogoutWrapper>
+              <FaUserLarge />
+              <>{'Hi, ' + username}</>
+            </StyledLogoutWrapper>
             <Button text="Logout" onClick={handleLogout} color="#00bcf7" />
           </>
         ) : (
