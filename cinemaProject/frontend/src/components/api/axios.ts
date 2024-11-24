@@ -8,7 +8,7 @@ export const CinemaAxios = axios.create({
 });
 
 export const AuthAxios = axios.create({
-  baseURL: 'http://localhost:8080/auth',
+  baseURL: process.env.REACT_APP_AUTH_URL,
   headers: {
     Accept: 'application/json',
   },
