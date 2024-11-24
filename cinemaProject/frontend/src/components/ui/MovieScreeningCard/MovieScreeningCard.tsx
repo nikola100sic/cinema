@@ -11,6 +11,7 @@ import {
 import Button from '../../shared/button/Button';
 import { useNavigate } from 'react-router-dom';
 import { MovieScreening } from '../../../types/MovieScreening';
+import useAuth from '../../../utils/authUtils';
 
 interface MovieScreeningCardProps {
   data: MovieScreening;
@@ -18,10 +19,15 @@ interface MovieScreeningCardProps {
 
 const MovieScreeningCard = ({ data }: MovieScreeningCardProps) => {
   const { movieDTO, screenings } = data;
+  const { isLoggedIn } = useAuth();
   const navigate = useNavigate();
 
   const handleTimeClick = (id: number) => {
-    navigate(`/screening/${id}`);
+    if (!isLoggedIn) {
+      navigate('/login', { state: { from: `/screening/${id}` } });
+    } else {
+      navigate(`/screening/${id}`);
+    }
   };
 
   const renderStars = (rating: number | undefined) => {
