@@ -8,6 +8,7 @@ import {
 import Button from '../button/Button';
 import { FaUser, FaUserPlus } from 'react-icons/fa';
 import { jwtDecode } from 'jwt-decode';
+import useAuth from '../../../utils/authUtils';
 
 interface HeaderProps {
   brandName: string;
@@ -20,6 +21,7 @@ interface NavItem {
 
 const Header = ({ brandName, navItems }: HeaderProps) => {
   const token = localStorage.getItem('jwt');
+  const { username } = useAuth();
 
   const handleLogout = () => {
     localStorage.removeItem('jwt');
@@ -56,7 +58,10 @@ const Header = ({ brandName, navItems }: HeaderProps) => {
       </StyledLinksWrapper>
       <StyledRegistrationLoginWrapper>
         {token ? (
-          <Button text="Logout" onClick={handleLogout} color="#00bcf7"></Button>
+          <>
+            <>{'Hi, ' + username}</>
+            <Button text="Logout" onClick={handleLogout} color="#00bcf7" />
+          </>
         ) : (
           <>
             <StyledLinks to={'/login'}>
