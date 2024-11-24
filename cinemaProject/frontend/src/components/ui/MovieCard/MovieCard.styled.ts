@@ -16,11 +16,6 @@ export const MovieInfo = styled.div`
   align-items: center;
 `;
 
-export const Label = styled.span`
-  font-weight: bold;
-  font-size: 16px;
-`;
-
 export const MovieImageStyled = styled.div`
   display: flex;
   width: 200px;
