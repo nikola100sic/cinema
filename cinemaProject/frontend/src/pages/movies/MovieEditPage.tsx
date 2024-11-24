@@ -79,6 +79,9 @@ const MovieEditPage = () => {
       [name]: value,
     }));
   };
+  const getBack = () => {
+    navigate('/movies');
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -153,6 +156,12 @@ const MovieEditPage = () => {
             </CheckBoxGroup>
             <ButtonContainer>
               <Button text="Submit" type="submit" disabled={loading} />
+              <Button
+                text="Back"
+                type="reset"
+                color="#e74c3c70"
+                onClick={() => getBack()}
+              />
             </ButtonContainer>
           </form>
         </MovieInfoPage>
