@@ -15,6 +15,7 @@ import genreServiceAxios from '../../components/api/genre.service.axios';
 import { Genre } from '../../types/Genre';
 import Button from '../../components/shared/button/Button';
 import { useNavigate } from 'react-router-dom';
+import useAuth from '../../utils/authUtils';
 
 const formatDate = (date: Date) => {
   const year = date.getFullYear();
@@ -33,6 +34,7 @@ const Home = () => {
   const [noScreenings, setNoScreenings] = useState(false);
 
   const navigate = useNavigate();
+  const { isAdmin } = useAuth();
 
   const handleDateSelect = (date: string) => {
     setSelectedDate(date);
@@ -108,11 +110,13 @@ const Home = () => {
         />
         <StyledScreenings>
           <ButtonContainerHome>
-            <Button
-              text="Add new screening"
-              color="#00bcf7"
-              onClick={goToAdd}
-            />
+            {isAdmin && (
+              <Button
+                text="Add new screening"
+                color="#00bcf7"
+                onClick={goToAdd}
+              />
+            )}
           </ButtonContainerHome>
           <Dropdown
             label="Select Genre"
