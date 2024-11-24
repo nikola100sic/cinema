@@ -8,6 +8,7 @@ import {
 import Button from '../../shared/button/Button';
 import { ButtonContainer } from '../GenreCard/GenreCard.styled';
 import { Label } from '../../shared/forms/Forms.styled';
+import useAuth from '../../../utils/authUtils';
 interface MovieCardProps {
   id: number;
   name: string;
@@ -27,6 +28,8 @@ const MovieCard = ({
   onDelete,
   onEdit,
 }: MovieCardProps) => {
+  const { isAdmin } = useAuth();
+
   return (
     <MovieCardStyled>
       <MovieInfo>
@@ -40,18 +43,20 @@ const MovieCard = ({
         <Label>Genres:</Label>
         {genres?.map((genre, index) => <li key={index}>{genre.name}</li>)}
       </MovieInfo>
-      <ButtonContainer>
-        <Button
-          text="Delete"
-          color="#ffffff7a"
-          onClick={() => onDelete && onDelete(id)}
-        />
-        <Button
-          text="Edit"
-          type="submit"
-          onClick={() => onEdit && onEdit(id)}
-        ></Button>
-      </ButtonContainer>
+      {isAdmin && (
+        <ButtonContainer>
+          <Button
+            text="Delete"
+            color="#ffffff7a"
+            onClick={() => onDelete && onDelete(id)}
+          />
+          <Button
+            text="Edit"
+            type="submit"
+            onClick={() => onEdit && onEdit(id)}
+          ></Button>
+        </ButtonContainer>
+      )}
     </MovieCardStyled>
   );
 };
