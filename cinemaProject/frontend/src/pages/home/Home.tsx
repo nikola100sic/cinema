@@ -44,7 +44,7 @@ const Home = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowMarquee(false);
-    }, 20000);
+    }, 35000);
 
     return () => clearTimeout(timer);
   }, []);
