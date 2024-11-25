@@ -9,6 +9,8 @@ import org.springframework.stereotype.Component;
 
 import java.security.Key;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @Component
 public class JwtUtills {
@@ -20,7 +22,10 @@ public class JwtUtills {
 
     public String generateJwtToken(Authentication authentication){
         UserDetails userPricipal = (UserDetails) authentication.getPrincipal();
+        Map<String,String> claims = new HashMap<String,String>();
+        claims.put("role", userPricipal.getAuthorities().stream().findFirst().get().getAuthority());
         return Jwts.builder()
+                .setClaims(claims)
                 .setSubject(userPricipal.getUsername())
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(new Date().getTime()+jwtExpiration))
