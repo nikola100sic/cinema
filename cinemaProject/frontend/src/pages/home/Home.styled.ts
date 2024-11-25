@@ -16,8 +16,8 @@ export const StyledMarqueeText = styled.div`
   p {
     display: inline-block;
     font-size: 15px;
-    animation: ${marquee} 20s linear infinite;
-    color: #e74c3cfa;
+    animation: ${marquee} 35s linear infinite;
+    color: #d40c0c;
     font-family: sans-serif;
   }
 `;
