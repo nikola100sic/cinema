@@ -1,5 +1,6 @@
 package com.cinema.cinemaProject.security;
 
+import com.cinema.cinemaProject.enumeration.UserRole;
 import com.cinema.cinemaProject.model.User;
 import com.cinema.cinemaProject.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +10,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
@@ -25,7 +26,14 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             return new UserDetails() {
                 @Override
                 public Collection<? extends GrantedAuthority> getAuthorities() {
-                    return List.of();
+                    Collection<GrantedAuthority> roles = new ArrayList<>();
+                    roles.add(new GrantedAuthority() {
+                        @Override
+                        public String getAuthority() {
+                            return user.getUserRole().toString();
+                        }
+                    });
+                    return roles;
                 }
 
                 @Override
