@@ -8,5 +8,6 @@ import org.springframework.stereotype.Component;
 public class LoginDTO {
 
     private String username;
+
     private String password;
 }
