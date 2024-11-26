@@ -69,7 +69,7 @@ const GenreEditPage = () => {
           value={genre.name}
           type="text"
           id="name"
-          onChange={(e) => setGenre({ ...genre, name: e.target.value })}
+          onChange={(event) => setGenre({ ...genre, name: event.target.value })}
         ></GenreFormInput>
         <ButtonContainer>
           <Button text="Submit" type="submit" color="#0083f3d6" />
