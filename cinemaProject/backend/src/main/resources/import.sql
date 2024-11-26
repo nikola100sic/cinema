@@ -76,12 +76,12 @@ INSERT INTO `seats` ( `seat_column`, `hall_id`,`seat_row`, `id`) VALUES ('5', '1
 INSERT INTO `seats` ( `seat_column`, `hall_id`,`seat_row`, `id`) VALUES ('5', '1','3', '19');
 INSERT INTO `seats` ( `seat_column`, `hall_id`,`seat_row`, `id`) VALUES ('5', '1','4', '20');
 
-INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-24', '15:30:00', '1', '1', '1');
-INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-24', '18:30:00', '2', '2', '1');
-INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-25' ,'20:30:00', '1', '3', '1');
-INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-25' ,'22:00:00', '2', '4', '2');
-INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-25' ,'17:30:00', '3', '5', '2');
-INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-25' ,'15:30:00', '1', '6', '3');
+INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-12-02', '15:30:00', '1', '1', '1');
+INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-12-02', '18:30:00', '2', '2', '1');
+INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-12-02' ,'20:30:00', '1', '3', '1');
+INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-12-03' ,'22:00:00', '2', '4', '2');
+INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-12-03' ,'17:30:00', '3', '5', '2');
+INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-12-03' ,'15:30:00', '1', '6', '3');
 INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-26' ,'20:00:00', '1', '7', '3');
 INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-26', '16:30:00', '2', '8', '3');
 INSERT INTO `screening` (`screening_date`, `screening_time`, `hall_id`, `id`, `movie_id`) VALUES ('2024-11-25', '18:30:00', '1', '9', '3');
