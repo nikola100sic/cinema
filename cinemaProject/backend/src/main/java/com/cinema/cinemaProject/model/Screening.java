@@ -3,6 +3,7 @@ package com.cinema.cinemaProject.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -19,6 +20,9 @@ public class Screening {
 
     @Column(nullable = false)
     private LocalTime screening_time;
+
+    private BigDecimal ticket_price;
+
 
     @ManyToOne
     private Movie movie;
