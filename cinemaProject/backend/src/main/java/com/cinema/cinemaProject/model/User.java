@@ -20,7 +20,7 @@ public class User {
     @Column(nullable = false)
     private String surname;
 
-    @Column( unique = true, nullable = false)
+    @Column(unique = true, nullable = false)
     private String eMail;
 
     @Column(nullable = false)
@@ -28,4 +28,10 @@ public class User {
 
     @Enumerated(EnumType.STRING)
     private UserRole userRole;
+
+    @Column
+    boolean isEmailVerified = false;
+
+    @Column(nullable = false)
+    private String token;
 }
