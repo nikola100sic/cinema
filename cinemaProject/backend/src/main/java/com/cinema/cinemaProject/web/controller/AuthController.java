@@ -80,24 +80,4 @@ public class AuthController {
         emailService.sendEmail(user.getEMail(), "Email Verification!", htmlContent);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
-
-//    @PostMapping("/registration")
-//    public ResponseEntity<User> registration(@RequestBody RegistrationDTO registrationData) {
-//        User user = userService.save(registrationData);
-//        emailService.sendEmail(user.getEMail(), "Email Verification!", "Please click the link to verify your email: \"http://localhost:8080/api/emailVerification/" + user.getToken() + "\"");
-//        return new ResponseEntity<>(user, HttpStatus.OK);
-//    }
-
-//    @PostMapping("/registration")
-//    public ResponseEntity<String> registration(@RequestBody RegistrationDTO registrationData) {
-//        User user = userService.save(registrationData);
-//
-//        UserDetails userDetails = userDetailsService.loadUserByUsername(user.getUsername());
-//
-//        String token = jwtUtills.generateJwtToken(
-//                new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities())
-//        );
-//        return new ResponseEntity<>(HttpStatus.OK);
-//    }
-
 }
