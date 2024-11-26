@@ -11,13 +11,14 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private boolean isActive;
+
     @ManyToOne
     private Seat seat;
 
     @ManyToOne
     private Screening screening;
 
-    private boolean isActive;
 
     @ManyToOne
     private User user;
