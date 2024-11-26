@@ -8,8 +8,17 @@ import java.util.List;
 
 public interface UserService {
 
-    List<User>findAll ();
+    List<User> findAll();
 
-    User save(RegistrationDTO registrationData);
+    User registration(RegistrationDTO registrationData);
 
+    User update(UserDTO updateData);
+
+    void verifyUser(User user);
+
+    User findByToken(String token);
+
+    boolean isVerified(User user);
+
+    User findOne(String username);
 }
