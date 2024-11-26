@@ -1,7 +1,10 @@
 package com.cinema.cinemaProject.web.controller;
 
+import com.cinema.cinemaProject.exception.users.InvalidCredentialsException;
+import com.cinema.cinemaProject.exception.users.NotVerifiedAccountException;
 import com.cinema.cinemaProject.model.User;
 import com.cinema.cinemaProject.security.JwtUtills;
+import com.cinema.cinemaProject.service.EmailService;
 import com.cinema.cinemaProject.service.UserService;
 import com.cinema.cinemaProject.web.dto.LoginDTO;
 import com.cinema.cinemaProject.web.dto.RegistrationDTO;
@@ -12,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,6 +34,8 @@ public class AuthController {
 
     private final PasswordEncoder passwordEncoder;
 
+    private final EmailService emailService;
+
 
     @GetMapping
     public ResponseEntity<List<User>> getAll() {
@@ -39,17 +45,59 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody LoginDTO loginData) {
+
         UserDetails user = userDetailsService.loadUserByUsername(loginData.getUsername());
-        if (user != null && passwordEncoder.matches(loginData.getPassword(), user.getPassword())) {
-            String token = jwtUtills.generateJwtToken(new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities()));
+        if (user == null) {
+            throw new InvalidCredentialsException("User with username: " + loginData.getUsername() + " not found.");
+        }
+        User user1 = userService.findOne(loginData.getUsername());
+        if (!userService.isVerified(user1)) {
+            throw new NotVerifiedAccountException(user.getUsername());
+        }
+        ;
+        if (passwordEncoder.matches(loginData.getPassword(), user.getPassword())) {
+            String token = jwtUtills.generateJwtToken(
+                    new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities()));
             return new ResponseEntity<>(token, HttpStatus.OK);
         }
-        return new ResponseEntity<>("Invalid credentials.", HttpStatus.BAD_REQUEST);
+        throw new InvalidCredentialsException("Invalid credentials.");
+
     }
 
     @PostMapping("/registration")
     public ResponseEntity<User> registration(@RequestBody RegistrationDTO registrationData) {
         User user = userService.save(registrationData);
+
+        String verificationLink = "http://localhost:8080/api/emailVerification/" + user.getToken();
+        String htmlContent = "<html>" +
+                "<body>" +
+                "<h1>Welcome to Cinema Application!</h1>" +
+                "<p>Please click the link to verify your email:</p>" +
+                "<a href=\"" + verificationLink + "\">Verify Email</a>" +
+                "</body>" +
+                "</html>";
+
+        emailService.sendEmail(user.getEMail(), "Email Verification!", htmlContent);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
+
+//    @PostMapping("/registration")
+//    public ResponseEntity<User> registration(@RequestBody RegistrationDTO registrationData) {
+//        User user = userService.save(registrationData);
+//        emailService.sendEmail(user.getEMail(), "Email Verification!", "Please click the link to verify your email: \"http://localhost:8080/api/emailVerification/" + user.getToken() + "\"");
+//        return new ResponseEntity<>(user, HttpStatus.OK);
+//    }
+
+//    @PostMapping("/registration")
+//    public ResponseEntity<String> registration(@RequestBody RegistrationDTO registrationData) {
+//        User user = userService.save(registrationData);
+//
+//        UserDetails userDetails = userDetailsService.loadUserByUsername(user.getUsername());
+//
+//        String token = jwtUtills.generateJwtToken(
+//                new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities())
+//        );
+//        return new ResponseEntity<>(HttpStatus.OK);
+//    }
+
 }
