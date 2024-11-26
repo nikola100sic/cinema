@@ -1,9 +1,7 @@
 package com.cinema.cinemaProject.web.dto;
 
 import com.cinema.cinemaProject.enumeration.UserRole;
-import jakarta.persistence.*;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 
 @Data
 public class UserDTO {
@@ -17,6 +15,8 @@ public class UserDTO {
     private String surname;
 
     private String eMail;
-    
+
     private UserRole userRole;
+
+    private boolean isVerified;
 }
