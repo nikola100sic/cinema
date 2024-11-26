@@ -34,7 +34,7 @@ public class MovieServiceImpl implements MovieService {
     @Override
     public Movie findOne(Long movieId) {
         return movieRepository.findById(movieId)
-                .orElseThrow(()-> new MovieNotFoundException(movieId));
+                .orElseThrow(() -> new MovieNotFoundException(movieId));
     }
 
     @Override
@@ -44,19 +44,19 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public Page<Movie> findAll(String name, int durationFrom, int durationTo, int page) {
-        Page<Movie>movies = movieRepository.search(name,durationFrom, durationTo, PageRequest.of(page,4));
-        if(movies.isEmpty()){
-            throw  new MoviesListEmpty();
+        Page<Movie> movies = movieRepository.search(name, durationFrom, durationTo, PageRequest.of(page, 4));
+        if (movies.isEmpty()) {
+            throw new MoviesListEmpty();
         }
         return movies;
     }
 
     @Override
     public Movie save(Movie movie) {
-        List<Long>genreIds = movie.getGenres().stream()
+        List<Long> genreIds = movie.getGenres().stream()
                 .map(Genre::getId)
                 .toList();
-        List<Genre>movieGenres= genreRepository.findAllById(genreIds);
+        List<Genre> movieGenres = genreRepository.findAllById(genreIds);
         movie.setGenres(movieGenres);
         return movieRepository.save(movie);
     }
@@ -126,6 +126,7 @@ public class MovieServiceImpl implements MovieService {
                     screeningDTO.setId(screening.getId());
                     screeningDTO.setScreening_date(screening.getScreening_date());
                     screeningDTO.setScreening_time(screening.getScreening_time());
+                    screeningDTO.setTicket_price(screening.getTicket_price());
 
                     HallDTO hallDTO = new HallDTO();
                     hallDTO.setId(screening.getHall().getId());
@@ -151,8 +152,8 @@ public class MovieServiceImpl implements MovieService {
     }
 
 
-    private Movie getMovieById(Long id){
-    return movieRepository.findById(id)
-            .orElseThrow(()-> new MovieNotFoundException(id));
+    private Movie getMovieById(Long id) {
+        return movieRepository.findById(id)
+                .orElseThrow(() -> new MovieNotFoundException(id));
     }
 }
