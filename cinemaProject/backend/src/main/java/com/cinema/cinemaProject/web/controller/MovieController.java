@@ -8,6 +8,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,6 +31,7 @@ public class MovieController {
         return new ResponseEntity<>(movies,HttpStatus.OK);
     }
     @GetMapping("/search")
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
     public ResponseEntity<List<Movie>>search(@RequestParam (required = false)String name,
                                              @RequestParam (required = false, defaultValue = "0") int durationFrom,
                                              @RequestParam (required = false, defaultValue = "100000000") int durationTo,
@@ -41,18 +43,21 @@ public class MovieController {
     }
 
     @PostMapping
+    @PreAuthorize("hasAnyAuthority('ADMIN')")
     public ResponseEntity<Movie> save (@RequestBody Movie movie){
         movieService.save(movie);
         return new ResponseEntity<>(movie, HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAnyAuthority('ADMIN')")
     public ResponseEntity<Void>delete(@PathVariable Long id){
         movieService.delete(id);
         return  new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PreAuthorize("hasAnyAuthority('ADMIN')")
     public ResponseEntity<Movie> edit (@RequestBody  Movie movie){
         movieService.update(movie, movie.getId());
         return new ResponseEntity<>(movie,HttpStatus.OK);
