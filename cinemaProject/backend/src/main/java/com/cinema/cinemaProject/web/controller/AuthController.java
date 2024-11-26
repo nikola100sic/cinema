@@ -50,9 +50,9 @@ public class AuthController {
         if (user == null) {
             throw new InvalidCredentialsException("User with username: " + loginData.getUsername() + " not found.");
         }
-        User user1 = userService.findOne(loginData.getUsername());
-        if (!userService.isVerified(user1)) {
-            throw new NotVerifiedAccountException(user.getUsername());
+        User userFromBase = userService.findOne(loginData.getUsername());
+        if (!userService.isVerified(userFromBase)) {
+            throw new NotVerifiedAccountException(userFromBase.getUsername());
         }
         ;
         if (passwordEncoder.matches(loginData.getPassword(), user.getPassword())) {
@@ -66,7 +66,7 @@ public class AuthController {
 
     @PostMapping("/registration")
     public ResponseEntity<User> registration(@RequestBody RegistrationDTO registrationData) {
-        User user = userService.save(registrationData);
+        User user = userService.registration(registrationData);
 
         String verificationLink = "http://localhost:8080/api/emailVerification/" + user.getToken();
         String htmlContent = "<html>" +
