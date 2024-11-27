@@ -15,6 +15,8 @@ import ScreeningAddPage from './pages/screenings/ScreeningAddPage';
 import ContactPage from './pages/contact/ContactPage';
 import LoginPage from './pages/auth/LoginPage';
 import RegistrationPage from './pages/auth/RegistrationPage';
+import EmailVerification from './pages/auth/EmailVerification';
+import Reservation from './pages/reservation/Reservation';
 
 function App() {
   return (
@@ -32,6 +34,12 @@ function App() {
             <Route path="/movies/edit/:id" element={<MovieEditPage />} />
             <Route path="/screenings/add" element={<ScreeningAddPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route
+              path="/emailVerificationSuccess"
+              element={<EmailVerification />}
+            />
+            <Route path="/screening/:id" element={<Reservation />} />
+
             <Route path="/login" element={<LoginPage />} />
             <Route path="/registration" element={<RegistrationPage />} />
           </Routes>
@@ -40,7 +48,7 @@ function App() {
 
       <ToastContainer
         position="top-center"
-        autoClose={2000}
+        autoClose={2500}
         hideProgressBar
         rtl={false}
         pauseOnFocusLoss
