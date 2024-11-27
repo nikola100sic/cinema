@@ -16,7 +16,6 @@ const GenreEditPage = () => {
   const routeParams = useParams();
   const navigate = useNavigate();
   const genreId = routeParams.id;
-
   const [genre, setGenre] = useState<Genre>({ id: 0, name: '' });
 
   const getGenre = () => {
