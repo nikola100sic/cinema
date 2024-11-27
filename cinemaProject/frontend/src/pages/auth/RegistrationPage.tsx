@@ -64,15 +64,11 @@ const RegistrationPage = () => {
     try {
       const resp = await AuthAxios.post('/registration', user);
       navigate('/login');
-      toast.success('Registration successful!');
-
-      // if (resp.status === 200) {
-      //   window.localStorage.setItem('jwt', resp.data);
-      //   window.location.replace('/home');
-      //   toast.success('Registration successful!');
-      // }
+      toast.success(
+        'Registration successful! Please verify your email before logging in.',
+      );
     } catch (error: any) {
-      toast.error(error.response.data);
+      toast.error(error.response.data || 'Error');
     }
   };
 
