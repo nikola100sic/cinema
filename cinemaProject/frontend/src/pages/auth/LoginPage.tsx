@@ -11,7 +11,6 @@ import { User } from '../../types/User';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthAxios } from '../../components/api/axios';
-import { error } from 'console';
 
 const LoginPage = () => {
   const [user, setUser] = useState<User>({
@@ -45,8 +44,6 @@ const LoginPage = () => {
       window.localStorage.setItem('jwt', resp.data);
       window.location.replace('/home');
       toast.success('Login successful!');
-
-      // navigate(from);
     } catch (error: any) {
       console.log(error);
       toast.warn(error.response.data);
