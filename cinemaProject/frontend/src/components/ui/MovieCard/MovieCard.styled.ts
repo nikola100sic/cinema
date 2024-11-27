@@ -1,5 +1,12 @@
 import styled from 'styled-components';
 
+export const MovieCardContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+`;
+
 export const MovieCardStyled = styled.div`
   display: flex;
   background-color: #109af857;
