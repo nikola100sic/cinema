@@ -4,5 +4,5 @@ export const MovieCardContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 50px;
+  gap: 40px;
 `;
