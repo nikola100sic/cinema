@@ -21,6 +21,7 @@ public class Screening {
     @Column(nullable = false)
     private LocalTime screening_time;
 
+    @Column(nullable = false)
     private BigDecimal ticket_price;
 
 
