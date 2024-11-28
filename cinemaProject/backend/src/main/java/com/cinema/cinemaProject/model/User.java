@@ -29,7 +29,7 @@ public class User {
     @Enumerated(EnumType.STRING)
     private UserRole userRole;
 
-    @Column
+    @Column(nullable = false)
     boolean isEmailVerified = false;
 
     @Column(nullable = false)
