@@ -1,12 +1,9 @@
 package com.cinema.cinemaProject.web.controller;
 
-import com.cinema.cinemaProject.model.Genre;
-import com.cinema.cinemaProject.model.Movie;
 import com.cinema.cinemaProject.model.Screening;
 import com.cinema.cinemaProject.service.MovieService;
 import com.cinema.cinemaProject.service.ScreeningService;
 import com.cinema.cinemaProject.web.dto.MovieWithScreeningsDTO;
-import com.cinema.cinemaProject.web.dto.ScreeningDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
