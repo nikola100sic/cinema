@@ -2,8 +2,6 @@ package com.cinema.cinemaProject.web.controller;
 
 import com.cinema.cinemaProject.model.Hall;
 import com.cinema.cinemaProject.service.HallService;
-import jakarta.transaction.Transactional;
-import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -22,8 +20,8 @@ public class HallController {
     private final HallService hallService;
 
     @GetMapping
-    public ResponseEntity<List<Hall>>getAll (){
-        List<Hall>halls = hallService.findAll();
+    public ResponseEntity<List<Hall>> getAll() {
+        List<Hall> halls = hallService.findAll();
         return new ResponseEntity<>(halls, HttpStatus.OK);
     }
 
