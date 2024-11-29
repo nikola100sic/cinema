@@ -24,9 +24,9 @@ const MovieScreeningCard = ({ data }: MovieScreeningCardProps) => {
 
   const handleTimeClick = (id: number) => {
     if (!isLoggedIn) {
-      navigate('/login', { state: { from: `/screening/${id}` } });
+      navigate('/login');
     } else {
-      navigate(`/screening/${id}`);
+      navigate(`/screening/${id}`, { state: { movieScreeningData: data } });
     }
   };
 
