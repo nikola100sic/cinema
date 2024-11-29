@@ -5,4 +5,5 @@ export interface Screening {
   screening_time: string;
   screening_date: string;
   hallDto: Hall;
+  ticket_price: number;
 }
