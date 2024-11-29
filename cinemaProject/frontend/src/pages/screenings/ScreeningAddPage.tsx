@@ -24,6 +24,7 @@ const ScreeningAddPage = () => {
     id: 0,
     screening_time: '',
     screening_date: '',
+    ticket_price: 0,
     hall: {
       id: 0,
       name: '',
@@ -130,6 +131,13 @@ const ScreeningAddPage = () => {
         <ScreeningFormInput
           name="screening_date"
           type="date"
+          onChange={handleChange}
+        />
+        <FormLabel>Ticket price</FormLabel>
+        <ScreeningFormInput
+          name="ticket_price"
+          type="number"
+          placeholder="Enter ticket price for screening"
           onChange={handleChange}
         />
         <FormLabel>Select movie:</FormLabel>
