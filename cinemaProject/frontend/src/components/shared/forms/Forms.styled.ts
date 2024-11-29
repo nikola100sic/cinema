@@ -82,6 +82,7 @@ export const CheckboxInput = styled.input`
 
 export const Label = styled.span`
   font-size: 15px;
+  font-weight: bold;
 `;
 
 export const MoviePicture = styled.div`
