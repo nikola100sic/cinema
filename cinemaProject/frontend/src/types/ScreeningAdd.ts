@@ -7,4 +7,5 @@ export interface ScreeningAdd {
   screening_date: string;
   hall: Hall;
   movie: Movie;
+  ticket_price: number;
 }
