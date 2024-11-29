@@ -15,6 +15,7 @@ export const StyledHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   z-index: 10;
+  /* flex-wrap: wrap; */
 `;
 
 export const StyledLinks = styled(NavLink)`
@@ -25,6 +26,7 @@ export const StyledLinks = styled(NavLink)`
 export const StyledLinksWrapper = styled.div`
   display: flex;
   gap: 100px;
+  flex-wrap: wrap;
 `;
 
 export const StyledRegistrationLoginWrapper = styled.div`
