@@ -8,7 +8,7 @@ import {
 } from '../../components/shared/forms/Forms.styled';
 import Button from '../../components/shared/button/Button';
 import { User } from '../../types/User';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthAxios } from '../../components/api/axios';
 
@@ -18,9 +18,7 @@ const LoginPage = () => {
     password: '',
   });
 
-  const location = useLocation();
   const navigate = useNavigate();
-  const from = location.state?.from || '/home';
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
