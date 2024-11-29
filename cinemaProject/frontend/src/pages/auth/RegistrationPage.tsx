@@ -58,11 +58,8 @@ const RegistrationPage = () => {
       );
       return;
     }
-
-    console.log(user);
-
     try {
-      const resp = await AuthAxios.post('/registration', user);
+      await AuthAxios.post('/registration', user);
       navigate('/login');
       toast.success(
         'Registration successful! Please verify your email before logging in.',
