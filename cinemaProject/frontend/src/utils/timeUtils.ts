@@ -1,8 +1,11 @@
 export const formatTime = (timeString: string) => {
-  const date = new Date(`1970-01-01T${timeString}Z`);
-  date.setMinutes(0);
-  date.setSeconds(0);
-  date.setMilliseconds(0);
+  const [hours, minutes] = timeString.split(':').map(Number);
+  const date = new Date();
 
-  return `${date.getHours()}:00`;
+  date.setHours(hours, minutes, 0, 0);
+
+  const formattedHours = date.getHours().toString().padStart(2, '0');
+  const formattedMinutes = date.getMinutes().toString().padStart(2, '0');
+
+  return `${formattedHours}:${formattedMinutes}`;
 };
