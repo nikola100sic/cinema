@@ -20,8 +20,7 @@ public class ScreeningServiceImpl implements ScreeningService {
     public List<Screening> getAllScreenings() {
         return screeningRepository.findAll();
     }
-
-
+    
     @Override
     public Screening createScreening(Screening screening) {
         List<Screening> screenings = screeningRepository.findScreeningsByHallAndDate(
@@ -40,7 +39,6 @@ public class ScreeningServiceImpl implements ScreeningService {
         }
         return screeningRepository.save(screening);
     }
-
 
     @Override
     public Screening delete(Long screeningId) {
