@@ -18,8 +18,7 @@ public class Reservation {
 
     @ManyToOne
     private Screening screening;
-
-
+    
     @ManyToOne
     private User user;
 }
