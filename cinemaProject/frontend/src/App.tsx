@@ -17,6 +17,7 @@ import LoginPage from './pages/auth/LoginPage';
 import RegistrationPage from './pages/auth/RegistrationPage';
 import EmailVerification from './pages/auth/EmailVerification';
 import Reservation from './pages/reservation/Reservation';
+import AccountPage from './pages/account/AccountPage';
 
 function App() {
   return (
@@ -39,7 +40,7 @@ function App() {
               element={<EmailVerification />}
             />
             <Route path="/screening/:id" element={<Reservation />} />
-
+            <Route path="/account/:username" element={<AccountPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/registration" element={<RegistrationPage />} />
           </Routes>
