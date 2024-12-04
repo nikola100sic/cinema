@@ -11,6 +11,7 @@ import { FaUser, FaUserPlus } from 'react-icons/fa';
 import { jwtDecode } from 'jwt-decode';
 import useAuth from '../../../utils/authUtils';
 import { FaUserLarge } from 'react-icons/fa6';
+import { Link } from 'react-router-dom';
 
 interface HeaderProps {
   brandName: string;
@@ -62,7 +63,12 @@ const Header = ({ brandName, navItems }: HeaderProps) => {
           <>
             <StyledLogoutWrapper>
               <FaUserLarge />
-              <>{'Hi, ' + username}</>
+              <Link
+                to={`/account/${username}`}
+                style={{ textDecoration: 'none', color: 'inherit' }}
+              >
+                {'Hi, ' + username}
+              </Link>
             </StyledLogoutWrapper>
             <Button text="Logout" onClick={handleLogout} color="#00bcf7" />
           </>
