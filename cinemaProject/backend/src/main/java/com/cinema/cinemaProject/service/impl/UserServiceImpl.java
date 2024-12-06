@@ -57,8 +57,7 @@ public class UserServiceImpl implements UserService {
         existingUser.setUserRole(UserRole.USER);
         return userRepository.save(existingUser);
     }
-
-
+    
     @Override
     public void verifyUser(User user) {
         user.setEmailVerified(true);
@@ -76,8 +75,22 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findOne(String username) {
+    public User getOneUser(String username) {
         return userRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException(username));
+    }
+
+    @Override
+    public UserDTO getOneUserDto(String username) {
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException(username));
+        UserDTO userDTO = new UserDTO();
+        userDTO.setId(user.getId());
+        userDTO.setName(user.getName());
+        userDTO.setUserRole(user.getUserRole());
+        userDTO.setUsername(user.getUsername());
+        userDTO.setEMail(user.getEMail());
+        userDTO.setSurname(user.getSurname());
+        return userDTO;
     }
 }
