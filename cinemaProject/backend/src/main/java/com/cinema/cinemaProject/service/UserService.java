@@ -20,5 +20,8 @@ public interface UserService {
 
     boolean isVerified(User user);
 
-    User findOne(String username);
+    User getOneUser(String username);
+
+    UserDTO getOneUserDto(String username);
+
 }
