@@ -8,6 +8,7 @@ import com.cinema.cinemaProject.service.EmailService;
 import com.cinema.cinemaProject.service.UserService;
 import com.cinema.cinemaProject.web.dto.LoginDTO;
 import com.cinema.cinemaProject.web.dto.RegistrationDTO;
+import com.cinema.cinemaProject.web.dto.UserDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -42,6 +43,12 @@ public class AuthController {
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
+    @GetMapping("/{username}")
+    public ResponseEntity<UserDTO> getOne(@PathVariable String username) {
+        UserDTO userDTO = userService.getOneUserDto(username);
+        return new ResponseEntity<>(userDTO, HttpStatus.OK);
+    }
+
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody LoginDTO loginData) {
 
@@ -49,7 +56,7 @@ public class AuthController {
         if (user == null) {
             throw new InvalidCredentialsException("User with username: " + loginData.getUsername() + " not found.");
         }
-        User userFromBase = userService.findOne(loginData.getUsername());
+        User userFromBase = userService.getOneUser(loginData.getUsername());
         if (!userService.isVerified(userFromBase)) {
             throw new NotVerifiedAccountException(userFromBase.getUsername());
         }
