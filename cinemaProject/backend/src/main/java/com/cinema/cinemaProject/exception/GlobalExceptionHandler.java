@@ -7,9 +7,11 @@ import com.cinema.cinemaProject.exception.movies.MoviesListEmpty;
 import com.cinema.cinemaProject.exception.screenings.HallOccupiedException;
 import com.cinema.cinemaProject.exception.screenings.ScreeningNotFoundException;
 import com.cinema.cinemaProject.exception.screenings.ScreeningsNotFoundException;
+import com.cinema.cinemaProject.exception.seats.SeatNotFoundException;
 import com.cinema.cinemaProject.exception.users.InvalidCredentialsException;
 import com.cinema.cinemaProject.exception.users.NotVerifiedAccountException;
 import com.cinema.cinemaProject.exception.users.PasswordMismatchException;
+import com.cinema.cinemaProject.exception.users.UserNotFoundException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -63,7 +65,17 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String> handleNotVerifiedAccount(NotVerifiedAccountException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.FORBIDDEN);
     }
-    
+
+    @ExceptionHandler(UserNotFoundException.class)
+    public ResponseEntity<String> handleEntityNotFoundException(UserNotFoundException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(SeatNotFoundException.class)
+    public ResponseEntity<String> handleEntityNotFoundException(SeatNotFoundException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+    }
+
     @ExceptionHandler(HallOccupiedException.class)
     public ResponseEntity<String> handleEntityHallOccupiedException(HallOccupiedException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
