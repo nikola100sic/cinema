@@ -1,4 +1,4 @@
-import { AuthAxios, CinemaAxios } from './axios';
+import { AuthAxios } from './axios';
 
 const getUser = (username: string) => {
   return AuthAxios.get(`/${username}`);
