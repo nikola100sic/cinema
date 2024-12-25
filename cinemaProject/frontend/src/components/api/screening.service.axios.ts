@@ -1,4 +1,3 @@
-import { Screening } from '../../types/Screening';
 import { ScreeningAdd } from '../../types/ScreeningAdd';
 import { CinemaAxios } from './axios';
 
