@@ -9,6 +9,7 @@ import Button from '../../shared/button/Button';
 import { ButtonContainer } from '../GenreCard/GenreCard.styled';
 import { Label } from '../../shared/forms/Forms.styled';
 import useAuth from '../../../utils/authUtils';
+
 interface MovieCardProps {
   id: number;
   name: string;
