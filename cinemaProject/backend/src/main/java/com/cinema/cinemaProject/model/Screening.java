@@ -22,8 +22,7 @@ public class Screening {
 
     @Column(nullable = false)
     private BigDecimal ticket_price;
-
-
+    
     @ManyToOne
     private Movie movie;
 
