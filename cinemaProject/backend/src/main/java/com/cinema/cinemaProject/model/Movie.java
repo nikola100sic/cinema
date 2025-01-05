@@ -1,7 +1,6 @@
 package com.cinema.cinemaProject.model;
 
 
-
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,8 +28,7 @@ public class Movie {
 
     @Column(nullable = false, unique = true)
     private String imageUrl;
-
-
+    
     @ManyToMany
     @JoinTable(
             name = "movie_genre",
