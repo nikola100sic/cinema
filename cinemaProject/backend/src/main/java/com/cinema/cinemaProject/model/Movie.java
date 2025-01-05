@@ -28,7 +28,7 @@ public class Movie {
 
     @Column(nullable = false, unique = true)
     private String imageUrl;
-    
+
     @ManyToMany
     @JoinTable(
             name = "movie_genre",
